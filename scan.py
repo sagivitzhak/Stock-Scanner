@@ -54,6 +54,14 @@ def nasdaq100():
     except Exception as e:
         log(f"nasdaq.com list failed ({e})")
     try:
+        for t in wiki_tables("https://www.slickcharts.com/nasdaq100"):
+            if "Symbol" in t.columns and 90 < len(t) < 120:
+                nm = "Company" if "Company" in t.columns else "Symbol"
+                out = [(str(r["Symbol"]).strip(), str(r[nm]) if str(r[nm]) != "nan" else str(r["Symbol"])) for _, r in t.iterrows()]
+                return [x for x in out if x[0] not in ("SPY", "QQQ", "DIA")]
+    except Exception as e:
+        log(f"slickcharts list failed ({e})")
+    try:
         for t in wiki_tables("https://en.wikipedia.org/wiki/Nasdaq-100"):
             col = next((c for c in ("Ticker", "Symbol") if c in t.columns), None)
             if col and 90 < len(t) < 120:
