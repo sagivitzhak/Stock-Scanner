@@ -1,0 +1,35 @@
+name: Price alerts
+
+on:
+  schedule:
+    - cron: "*/15 13-21 * * 1-5"   # every 15 min, 13:00–21:59 UTC = US market hours (winter and summer)
+  issues:
+    types: [opened]               # check a new alert right away
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+concurrency:
+  group: price-alerts
+  cancel-in-progress: false
+
+jobs:
+  check:
+    if: github.event_name != 'issues' || startsWith(github.event.issue.title, 'ALERT ')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install yfinance
+      - run: python price_alerts.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
