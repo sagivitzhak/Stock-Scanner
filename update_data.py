@@ -22,6 +22,7 @@ ROOT = Path(__file__).parent
 SRC = ROOT / "catalysts.json"
 OUT = ROOT / "data.js"
 AI_CACHE = ROOT / "ai_cache.json"
+OHLC_DIR = ROOT / "ohlc"
 EM_DAYS = 45             # compute options expected move for events up to this far ahead
 AI_MODEL = os.environ.get("AI_MODEL", "claude-haiku-5-5")
 OFFLINE = "--offline" in sys.argv
@@ -145,6 +146,37 @@ def fetch_yf(tickers):
     return live
 
 
+def export_ohlc(tickers):
+    """Price history for the technical-analysis page: ~3y daily bars and full monthly history.
+    Weekly and yearly candles are built in the browser from these."""
+    import yfinance as yf
+
+    OHLC_DIR.mkdir(exist_ok=True)
+
+    def rows(df):
+        out = []
+        for ts, r in df.iterrows():
+            o, h, l, c = (num(r.get(k), 4) for k in ("Open", "High", "Low", "Close"))
+            if None in (o, h, l, c):
+                continue
+            out.append([ts.strftime("%Y-%m-%d"), o, h, l, c, int(r.get("Volume") or 0)])
+        return out
+
+    ok = 0
+    for tk in tickers:
+        try:
+            t = yf.Ticker(tk)
+            d = rows(t.history(period="3y", interval="1d", auto_adjust=True))
+            m = rows(t.history(period="max", interval="1mo", auto_adjust=True))
+            if not d:
+                continue
+            (OHLC_DIR / f"{tk}.json").write_text(json.dumps({"tk": tk, "at": NOW.strftime("%Y-%m-%d"), "d": d, "m": m}, separators=(",", ":")), encoding="utf-8")
+            ok += 1
+        except Exception as e:
+            log(f"  {tk}: ohlc failed ({e.__class__.__name__})")
+    log(f"ohlc: {ok}/{len(tickers)} tickers")
+
+
 def fda_approved(drug):
     """openFDA lists approvals after they happen (Drugs@FDA). It has no future PDUFA dates,
     and CBER biologics (cell and gene therapies) are often missing, so 'not found' means unknown."""
@@ -262,6 +294,7 @@ def build():
         log(f"yfinance: {len(fetch)} tickers")
         try:
             live.update(fetch_yf(fetch))
+            export_ohlc(sorted(set(fetch) | {x["tk"] for x in extra if x.get("t") != "m"}))
         except ImportError:
             log("yfinance not installed, keeping previous live data")
 
