@@ -41,6 +41,29 @@ def wiki_tables(url):
         return pd.read_html(io.StringIO(r.read().decode("utf-8")))
 
 
+def nasdaq100():
+    """[(symbol, name)] from Nasdaq's own list; Wikipedia as a fallback."""
+    try:
+        req = urllib.request.Request("https://api.nasdaq.com/api/quote/list-type/nasdaq100",
+                                     headers={**UA, "Accept": "application/json"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            rows = json.load(r)["data"]["data"]["rows"]
+        out = [(x["symbol"].strip(), x.get("companyName", x["symbol"])) for x in rows if x.get("symbol")]
+        if len(out) > 90:
+            return out
+    except Exception as e:
+        log(f"nasdaq.com list failed ({e})")
+    try:
+        for t in wiki_tables("https://en.wikipedia.org/wiki/Nasdaq-100"):
+            col = next((c for c in ("Ticker", "Symbol") if c in t.columns), None)
+            if col and 90 < len(t) < 120:
+                nm = "Company" if "Company" in t.columns else t.columns[0]
+                return [(str(r[col]).strip(), str(r[nm])) for _, r in t.iterrows()]
+    except Exception as e:
+        log(f"wikipedia Nasdaq-100 failed ({e})")
+    return []
+
+
 def load_universe():
     uni = {}
     try:
@@ -49,20 +72,13 @@ def load_universe():
                 for _, r in t.iterrows():
                     uni[str(r["Symbol"]).strip()] = {"nm": str(r["Security"]), "sec": str(r.get("GICS Sector", "")), "ix": ["S&P 500"]}
                 break
-        for t in wiki_tables("https://en.wikipedia.org/wiki/Nasdaq-100"):
-            col = "Ticker" if "Ticker" in t.columns else "Symbol" if "Symbol" in t.columns else None
-            if col and len(t) > 90:
-                name_col = "Company" if "Company" in t.columns else t.columns[0]
-                for _, r in t.iterrows():
-                    s = str(r[col]).strip()
-                    if s in uni:
-                        uni[s]["ix"].append("Nasdaq-100")
-                    else:
-                        sec = str(r.get("GICS Sector", r.get("ICB Industry[14]", "")))
-                        uni[s] = {"nm": str(r[name_col]), "sec": sec, "ix": ["Nasdaq-100"]}
-                break
     except Exception as e:
-        log(f"universe download failed ({e}); using cache")
+        log(f"S&P 500 list failed ({e})")
+    for s, nm in nasdaq100():
+        if s in uni:
+            uni[s]["ix"].append("Nasdaq-100")
+        else:
+            uni[s] = {"nm": nm, "sec": "", "ix": ["Nasdaq-100"]}
     if len(uni) > 400:
         UNIVERSE_CACHE.write_text(json.dumps(uni, ensure_ascii=False), encoding="utf-8")
     elif UNIVERSE_CACHE.exists():
