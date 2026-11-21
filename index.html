@@ -77,6 +77,8 @@ li{margin-bottom:4px}
 .lv{font-size:13px;font-weight:700;color:var(--teal);margin-top:4px}
 .auto{font-size:12px;font-weight:700;border:1px solid var(--line);border-radius:3px;padding:0 6px;color:var(--mute)}
 .auto.ok{color:var(--teal);border-color:currentColor}
+.em{font-size:14px;margin-top:6px}.em b{color:var(--claret)}.em span{font-size:12px;color:var(--mute)}
+.auto.bell{color:var(--claret)}
 .empty{padding:28px;text-align:center;border:1px dashed var(--line);color:var(--mute)}
 .note{font-size:13px;color:var(--mute);margin-top:22px;max-width:80ch}
 .toast{position:fixed;inset-inline-start:16px;bottom:16px;background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:3px;opacity:0;transition:opacity .2s;pointer-events:none}
@@ -114,7 +116,7 @@ li{margin-bottom:4px}
     <button class="btn" id="copy">העתקת סיכום</button>
   </div>
   <div class="list" id="list"></div>
-  <p class="note"><span id="upd"></span> הניתוח בכרטיסים נכתב ידנית; מחירים, מכפילים, יעדים ותאריכי דוחות נמשכים מ-Yahoo Finance וישנים עד יום. נתונים עשויים להשתנות. ספירה לאחור מחושבת לפי השעון שלך. זה אינו ייעוץ השקעות.</p>
+  <p class="note"><span id="upd"></span> מניות עם 🔔 מקבלות התראה בבוקר האירוע ומסומנות בכל מכשיר (<a href="https://github.com/sagivitzhak/Stock-Scanner/edit/main/catalysts.json" target="_blank" rel="noopener" style="color:inherit">עריכת רשימת ההתראות</a>). כוכב שמסמנים כאן נשמר רק בדפדפן הזה. הניתוח בכרטיסים נכתב ידנית; מחירים, מכפילים, יעדים ותאריכי דוחות נמשכים מ-Yahoo Finance וישנים עד יום. נתונים עשויים להשתנות. ספירה לאחור מחושבת לפי השעון שלך. זה אינו ייעוץ השקעות.</p>
 </div></section>
 <div class="toast" id="toast" role="status"></div>
 
@@ -124,6 +126,9 @@ li{margin-bottom:4px}
 const D=window.DATA||{events:[],extra:[]};
 const E=D.events;
 const X=D.extra;
+const AL=(D.alerts||[]).map(x=>x.toUpperCase());
+const isAl=e=>AL.includes(e.tk.toUpperCase());
+const starred=e=>st.stars.includes(e.id)||isAl(e);
 const $=s=>document.querySelector(s);
 const st={f:"all",q:"",sort:"date",stars:[]};
 try{Object.assign(st,JSON.parse(localStorage.getItem("cat-state")||"{}"))}catch(e){}
@@ -142,15 +147,15 @@ weeks.push(["מ-"+dm(iso(addD(mon,28))),iso(addD(mon,28))]);
 const all=E.map(e=>({tk:e.tk,t:e.t,d:e.d,nm:e.nm,id:e.id})).concat(X);
 const cal=()=>{$("#cal").innerHTML=weeks.map((w,i)=>{const a=day(w[1]),b=i<4?day(weeks[i+1][1]):new Date(8.64e15);const ev=all.filter(e=>{const x=day(e.d);return x>=a&&x<b}).sort((p,q)=>day(p.d)-day(q.d));const g={};ev.forEach(e=>{(g[dm(e.d)]=g[dm(e.d)]||[]).push(e)});return '<div class="wk"><h3>'+w[0]+'</h3><div>'+Object.keys(g).map(k=>'<div class="day"><time>'+k+'</time><div class="chips">'+g[k].map(e=>'<button class="chip '+e.t+(day(e.d)<now?' past':'')+'" title="'+e.nm+'" data-id="'+(e.id||"")+'">'+e.tk+'</button>').join('')+'</div></div>').join('')+'</div></div>'}).join('')};
 const figs=()=>{const up=E.filter(e=>day(e.d)>now).sort((a,b)=>day(a.d)-day(b.d));const n=up[0];const l=n?left(n.d):["–",""];$("#figs").innerHTML='<div><b>'+E.length+'</b><span>אירועים בניתוח מלא</span></div><div><b dir="ltr">'+(n?n.tk:"–")+'</b><span>הבא בתור: בעוד '+l[0]+' '+l[1]+'</span></div><div><b>'+E.filter(e=>e.risk===3).length+'</b><span>בסיכון גבוה</span></div>'};
-const card=e=>{const l=left(e.d);const on=st.stars.includes(e.id);return '<article class="card" id="'+e.id+'"><div class="top"><div><div class="tk '+e.t+'">'+e.tk+'</div><div class="nm">'+e.nm+'</div><div class="when">'+e.tm+'</div></div><div class="cd"><b>'+l[0]+'</b><span>'+(l[1]||"&nbsp;")+'</span></div><button class="star" aria-label="הוספה למעקב" aria-pressed="'+on+'" data-s="'+e.id+'">★</button></div><p class="ev">'+e.ev+'</p><div><span class="exp">מה מצפים: </span>'+e.exp+' &nbsp;<span class="risk r'+e.risk+'">סיכון '+e.riskTx+'</span></div><table>'+e.m.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>').join('')+'</table>'+(e.live&&e.live.length?'<div class="lv">נתונים חיים'+(e.liveAt?' · '+e.liveAt.slice(8,10)+'.'+(+e.liveAt.slice(5,7))+' '+e.liveAt.slice(11,16)+' UTC':'')+'</div><table>'+e.live.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>').join('')+'</table>':'')+'<details><summary>ניתוח ונקודות לבדיקה</summary><ul>'+e.b.map(x=>'<li>'+x+'</li>').join('')+(e.b.length?'':'<li>עדיין אין ניתוח ידני. אפשר להוסיף אותו ב-catalysts.json.</li>')+'</ul><div class="src">מקורות: '+e.s.map(x=>'<a href="'+x[1]+'" target="_blank" rel="noopener">'+x[0]+'</a>').join(' · ')+'</div></details></article>'};
-const rows=()=>{let r=E.filter(e=>(st.f==="all"||(st.f==="star"?st.stars.includes(e.id):e.t===st.f)));const q=st.q.trim().toLowerCase();if(q)r=r.filter(e=>(e.tk+" "+e.nm).toLowerCase().includes(q));r.sort(st.sort==="risk"?(a,b)=>b.risk-a.risk||day(a.d)-day(b.d):st.sort==="tk"?(a,b)=>a.tk.localeCompare(b.tk):(a,b)=>day(a.d)-day(b.d));return r};
+const card=e=>{const l=left(e.d);const on=starred(e);return '<article class="card" id="'+e.id+'"><div class="top"><div><div class="tk '+e.t+'">'+e.tk+'</div><div class="nm">'+e.nm+(e.auto?' <span class="auto">אוטומטי</span>':'')+(e.status?' <span class="auto ok">'+e.status+'</span>':'')+(isAl(e)?' <span class="auto bell" title="נשלחת התראה בבוקר האירוע">🔔 התראה</span>':'')+'</div><div class="when">'+e.tm+'</div></div><div class="cd"><b>'+l[0]+'</b><span>'+(l[1]||"&nbsp;")+'</span></div><button class="star" aria-label="הוספה למעקב" aria-pressed="'+on+'" data-s="'+e.id+'">★</button></div><p class="ev">'+e.ev+'</p><div><span class="exp">מה מצפים: </span>'+e.exp+' &nbsp;<span class="risk r'+e.risk+'">סיכון '+e.riskTx+'</span>'+(e.em?'<div class="em">תנועה צפויה באופציות: <b dir="ltr">±'+e.em.pct+'%</b> <span>(סטראדל ATM, פקיעה '+dm(e.em.exp)+')</span></div>':'')+'</div><table>'+e.m.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>').join('')+'</table>'+(e.live&&e.live.length?'<div class="lv">נתונים חיים'+(e.liveAt?' · '+e.liveAt.slice(8,10)+'.'+(+e.liveAt.slice(5,7))+' '+e.liveAt.slice(11,16)+' UTC':'')+'</div><table>'+e.live.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>').join('')+'</table>':'')+'<details><summary>ניתוח ונקודות לבדיקה'+(e.ai?'&nbsp;<span class="auto">נכתב ע״י AI</span>':'')+'</summary><ul>'+e.b.map(x=>'<li>'+x+'</li>').join('')+(e.b.length?'':'<li>עדיין אין ניתוח ידני. אפשר להוסיף אותו ב-catalysts.json.</li>')+'</ul><div class="src">מקורות: '+e.s.map(x=>'<a href="'+x[1]+'" target="_blank" rel="noopener">'+x[0]+'</a>').join(' · ')+'</div></details></article>'};
+const rows=()=>{let r=E.filter(e=>(st.f==="all"||(st.f==="star"?starred(e):e.t===st.f)));const q=st.q.trim().toLowerCase();if(q)r=r.filter(e=>(e.tk+" "+e.nm).toLowerCase().includes(q));r.sort(st.sort==="risk"?(a,b)=>b.risk-a.risk||day(a.d)-day(b.d):st.sort==="tk"?(a,b)=>a.tk.localeCompare(b.tk):(a,b)=>day(a.d)-day(b.d));return r};
 const render=()=>{const r=rows();$("#list").innerHTML=r.length?r.map(card).join(''):'<div class="empty">'+(st.f==="star"?"עוד לא סימנת מניות למעקב. לחיצה על ★ בכרטיס מוסיפה אותה.":"אין אירועים שתואמים לחיפוש.")+'</div>';document.querySelectorAll(".seg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===st.f));figs()};
 const toast=t=>{const el=$("#toast");el.textContent=t;el.classList.add("on");setTimeout(()=>el.classList.remove("on"),1800)};
 document.querySelectorAll(".seg button").forEach(b=>b.addEventListener("click",()=>{st.f=b.dataset.f;save();render()}));
 $("#q").value=st.q;$("#sort").value=st.sort;
 $("#q").addEventListener("input",e=>{st.q=e.target.value;save();render()});
 $("#sort").addEventListener("change",e=>{st.sort=e.target.value;save();render()});
-$("#list").addEventListener("click",e=>{const b=e.target.closest("[data-s]");if(!b)return;const id=b.dataset.s;st.stars=st.stars.includes(id)?st.stars.filter(x=>x!==id):st.stars.concat(id);save();render()});
+$("#list").addEventListener("click",e=>{const b=e.target.closest("[data-s]");if(!b)return;const id=b.dataset.s;const ev=E.find(x=>x.id===id);if(ev&&isAl(ev)){toast("המניה ברשימת ההתראות. להסרה: catalysts.json ← alerts");return}st.stars=st.stars.includes(id)?st.stars.filter(x=>x!==id):st.stars.concat(id);save();render()});
 $("#cal").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;const id=b.dataset.id;if(!id){toast(b.title);return}st.f="all";st.q="";$("#q").value="";render();const c=document.getElementById(id);if(!c)return;c.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"});c.classList.add("hl");c.querySelector("details").open=true;setTimeout(()=>c.classList.remove("hl"),2200)});
 $("#copy").addEventListener("click",async()=>{const t=rows().map(e=>e.tk+" | "+e.nm+" | "+e.tm+" | "+e.exp).join("\n");try{await navigator.clipboard.writeText(t);toast("הסיכום הועתק")}catch(err){toast("ההעתקה נחסמה בדפדפן")}});
 {const in30=all.filter(e=>{const x=day(e.d);return x>now&&x-now<30*864e5});const ne=in30.filter(e=>e.t==="e").length,nf=in30.filter(e=>e.t==="f").length;$("#h1").textContent=ne+" דוחות ו-"+nf+" החלטות FDA ב-30 הימים הקרובים";if(D.updated){const u=new Date(D.updated);$("#upd").textContent="עודכן "+u.toLocaleString("he-IL",{dateStyle:"short",timeStyle:"short"})+".";}}

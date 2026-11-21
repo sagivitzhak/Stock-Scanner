@@ -1,6 +1,7 @@
 {
  "_readme": "קובץ זה נערך ידנית. update_data.py קורא אותו, מוסיף נתונים חיים ומייצר את data.js.",
  "watchlist": ["NVDA", "TGT", "LOW", "PANW", "WMT", "INTU", "BBY", "AAPL", "MSFT", "AMZN", "GOOGL", "META", "TSLA", "AVGO", "COST", "ORCL", "CRM", "ADBE", "MU", "AMD"],
+ "alerts": ["CAPR", "VRTX", "COGT", "CORT"],
  "events": [
   {
    "id": "nvda",

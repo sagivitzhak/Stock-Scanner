@@ -15,11 +15,15 @@ import sys
 import datetime as dt
 import urllib.parse
 import urllib.request
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).parent
 SRC = ROOT / "catalysts.json"
 OUT = ROOT / "data.js"
+AI_CACHE = ROOT / "ai_cache.json"
+EM_DAYS = 45             # compute options expected move for events up to this far ahead
+AI_MODEL = os.environ.get("AI_MODEL", "claude-haiku-5-5")
 OFFLINE = "--offline" in sys.argv
 KEEP_PAST_DAYS = 21      # passed events stay visible (faded) this long
 HORIZON_DAYS = 75        # auto-added earnings up to this far ahead
@@ -58,6 +62,18 @@ def load_previous():
     try:
         data = json.loads(txt[txt.index("{"): txt.rindex("}") + 1])
         return data.get("live", {})
+    except Exception:
+        return {}
+
+
+def load_previous_events():
+    """Expected-move values from the last run, keyed by event id (kept if options fetch fails)."""
+    if not OUT.exists():
+        return {}
+    txt = OUT.read_text(encoding="utf-8")
+    try:
+        data = json.loads(txt[txt.index("{"): txt.rindex("}") + 1])
+        return {e["id"]: e["em"] for e in data.get("events", []) if e.get("em")}
     except Exception:
         return {}
 
@@ -141,6 +157,68 @@ def fda_approved(drug):
         return False
 
 
+def expected_move(tk, event_date, spot):
+    """At-the-money straddle for the first expiry on/after the event, as % of price.
+    It prices the whole period to expiry, not only the event, so it is an upper-bound read."""
+    import yfinance as yf
+
+    t = yf.Ticker(tk)
+    exps = list(t.options or [])
+    ev = event_date.date()
+    exp = next((x for x in exps if dt.date.fromisoformat(x) >= ev), None)
+    if not exp:
+        return None
+    if not spot:
+        return None
+    ch = t.option_chain(exp)
+
+    def mid(df):
+        df = df.assign(dist=(df["strike"] - spot).abs()).sort_values("dist")
+        r = df.iloc[0]
+        b, a, last = num(r.get("bid")), num(r.get("ask")), num(r.get("lastPrice"))
+        px = (b + a) / 2 if b and a else last
+        return float(r["strike"]), px
+
+    ks, c = mid(ch.calls)
+    _, p = mid(ch.puts)
+    if not c or not p:
+        return None
+    return {"pct": round((c + p) / spot * 100, 1), "exp": exp, "strike": ks}
+
+
+def ai_summary(e, L, cache):
+    """Writes 'what to expect' + 3 points for a card with no hand-written analysis.
+    Runs only when ANTHROPIC_API_KEY is set; cached per event so each card costs one call."""
+    key = os.environ.get("ANTHROPIC_API_KEY")
+    if not key or OFFLINE:
+        return None
+    if e["id"] in cache:
+        return cache[e["id"]]
+    facts = {"ticker": e["tk"], "company": e["nm"], "event_date": e["d"], "type": "earnings" if e["t"] == "e" else "FDA decision",
+             "consensus": e.get("exp"), "live": L or {}, "expected_move": e.get("em")}
+    prompt = (
+        "You are writing one card of a Hebrew stock-catalyst dashboard for a retail investor. "
+        "Use ONLY the facts below; do not invent numbers, guidance, products or news. If a fact is missing, do not guess it. "
+        "Return strict JSON: {\"exp\": one Hebrew sentence on what the market expects, "
+        "\"b\": [exactly 3 short Hebrew bullet strings: what to check in the report, the main risk, how valuation/analyst targets frame it]}. "
+        "No investment advice, no buy/sell wording.\n\nFACTS:\n" + json.dumps(facts, ensure_ascii=False, default=str)
+    )
+    body = json.dumps({"model": AI_MODEL, "max_tokens": 600, "messages": [{"role": "user", "content": prompt}]}).encode()
+    req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body, headers={
+        "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            txt = "".join(b.get("text", "") for b in json.load(r).get("content", []))
+        res = json.loads(txt[txt.index("{"): txt.rindex("}") + 1])
+        res = {"exp": str(res.get("exp", ""))[:300], "b": [str(x)[:300] for x in res.get("b", [])][:3]}
+        cache[e["id"]] = res
+        log(f"  AI summary: {e['tk']}")
+        return res
+    except Exception as ex:
+        log(f"  AI summary failed for {e['tk']}: {ex}")
+        return None
+
+
 def live_rows(L):
     rows = []
     if L.get("price") is not None:
@@ -180,9 +258,10 @@ def build():
     prev = load_previous()
     live = dict(prev)
     if not OFFLINE:
-        log(f"yfinance: {len(watch)} tickers")
+        fetch = sorted(set(watch) | {e["tk"] for e in events})
+        log(f"yfinance: {len(fetch)} tickers")
         try:
-            live.update(fetch_yf(watch))
+            live.update(fetch_yf(fetch))
         except ImportError:
             log("yfinance not installed, keeping previous live data")
 
@@ -223,11 +302,39 @@ def build():
             "live": live_rows(L), "liveAt": L.get("at"),
         })
 
+    # options expected move + AI summaries for upcoming cards
+    cache = {}
+    if AI_CACHE.exists():
+        try:
+            cache = json.loads(AI_CACHE.read_text(encoding="utf-8"))
+        except Exception:
+            cache = {}
+    prev_em = {k: v for k, v in (load_previous_events() or {}).items()}
+    for e in out:
+        d = parse_date(e["d"])
+        if NOW - dt.timedelta(days=1) < d < NOW + dt.timedelta(days=EM_DAYS):
+            em = None
+            if not OFFLINE:
+                try:
+                    em = expected_move(e["tk"], d, (live.get(e["tk"]) or {}).get("price"))
+                except Exception as ex:
+                    log(f"  {e['tk']}: expected move failed ({ex.__class__.__name__})")
+            e["em"] = em or prev_em.get(e["id"])
+        if not e.get("b"):
+            ai = ai_summary(e, live.get(e["tk"]), cache)
+            if ai:
+                if e.get("auto") and ai.get("exp"):
+                    e["exp"] = e["exp"] + ". " + ai["exp"] if e["exp"] != "אין עדיין קונצנזוס" else ai["exp"]
+                e["b"] = ai["b"]
+                e["ai"] = True
+    AI_CACHE.write_text(json.dumps(cache, ensure_ascii=False, indent=1), encoding="utf-8")
+
     macro = [{"tk": "FOMC", "t": "m", "d": d, "nm": n} for d, n in FOMC if cutoff < parse_date(d) < horizon]
     carded = {(e["tk"], e["d"][:10]) for e in out}
     extra = [x for x in extra if cutoff < parse_date(x["d"]) and (x["tk"], x["d"][:10]) not in carded] + macro
 
-    data = {"updated": NOW.strftime("%Y-%m-%dT%H:%M:%SZ"), "events": out, "extra": extra, "live": live}
+    data = {"updated": NOW.strftime("%Y-%m-%dT%H:%M:%SZ"), "events": out, "extra": extra, "live": live,
+            "alerts": src.get("alerts", [])}
     OUT.write_text("window.DATA=" + json.dumps(data, ensure_ascii=False, indent=0) + ";\n", encoding="utf-8")
     log(f"wrote {OUT.name}: {len(out)} events, {len(extra)} calendar-only")
 
