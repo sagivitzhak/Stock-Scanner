@@ -1,0 +1,295 @@
+{
+ "_readme": "קובץ זה נערך ידנית. update_data.py קורא אותו, מוסיף נתונים חיים ומייצר את data.js.",
+ "watchlist": ["NVDA", "TGT", "LOW", "PANW", "WMT", "INTU", "BBY", "AAPL", "MSFT", "AMZN", "GOOGL", "META", "TSLA", "AVGO", "COST", "ORCL", "CRM", "ADBE", "MU", "AMD"],
+ "events": [
+  {
+   "id": "nvda",
+   "t": "e",
+   "tk": "NVDA",
+   "nm": "Nvidia",
+   "d": "2026-11-17T21:20:00Z",
+   "tm": "17.11, אחרי הסגירה (23:20 שעון ישראל)",
+   "ev": "דוח Q3 FY27 (אוג׳–אוק׳ 2026). הדוח הראשון מאז התפטרות ג׳נסן הואנג. קולט קרס היא מנכ״לית זמנית.",
+   "exp": "הכנסות כ-$109 מיליארד, EPS כ-$2.47–2.49",
+   "risk": 3,
+   "riskTx": "גבוה",
+   "m": [
+    ["הכנסות ברבעון קודם", "$96.2 מיליארד"],
+    ["EPS ברבעון קודם", "$2.22"],
+    ["רווח גולמי (GAAP)", "75%"],
+    ["תחזית החברה לרבעון", "$108 מיליארד ±2%, רווח גולמי 74%"],
+    ["מחיר (13.11)", "$162.85, 32% מתחת ל-6.10"]
+   ],
+   "b": [
+    "Vera Rubin צפויה להיות כ-20% מהכנסות מרכזי הנתונים ברבעון.",
+    "הרווח הגולמי צפוי לרדת ל-71%–72% ברבעון הרביעי בגלל עלות הזיכרון.",
+    "התחזית לא כוללת הכנסות מעיבוד של מרכזי נתונים בסין. Bernstein חתכה את מחיר היעד ל-$200.",
+    "מה לבדוק: את התחזית לרבעון הרביעי ואת מה שיאמר על חיפוש מנכ״ל קבוע."
+   ],
+   "s": [
+    ["8-K ב-SEC", "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvda-20261111.htm"],
+    ["S&P Global", "https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/11/nvidia-earnings-preview-q3-2027"],
+    ["Trefis", "https://www.trefis.com/stock/nvda/articles/616804/what-could-stop-nvidia-stock-over-the-next-six-months/2026-09-27"],
+    ["FourWeekMBA", "https://fourweekmba.com/ai-nvidia-earnings-nov-17-108b-guide-89-above-a-year-ago/"]
+   ]
+  },
+  {
+   "id": "tgt",
+   "t": "e",
+   "tk": "TGT",
+   "nm": "Target",
+   "d": "2026-11-18T11:30:00Z",
+   "tm": "18.11, לפני הפתיחה",
+   "ev": "דוח Q3. השוק מאמין שהמהפך אמיתי, ולכן הרף גבוה.",
+   "exp": "EPS כ-$2.03 (whisper של $2.17), הכנסות $26.4 מיליארד",
+   "risk": 2,
+   "riskTx": "בינוני",
+   "m": [
+    ["מכירות בחנויות זהות, Q2", "3.8%+, תנועה 3.6%+"],
+    ["תחזית EPS שנתית", "$9.90–10.90 (כ-$8.25–9.25 בלי החזר מכס)"],
+    ["תחזית הכנסות שנתית", "כ-$110 מיליארד, צמיחה של כ-5%"],
+    ["פרסום (Roundel)", "כ-20%+"],
+    ["מגמת המניה", "כ-12%+ מאז הדוח הקודם, קרוב לשיא $171"]
+   ],
+   "b": [
+    "היעד הוא שולי רווח תפעולי גבוהים בכחצי נקודה מ-4.6%. הוצאות המכירה וההנהלה עולות בכ-7%.",
+    "תחומי הבית והביגוד עדיין מתחת ליעד.",
+    "הסיכון: אם יפרסמו רק את מספר הקונצנזוס, זה עלול לא להספיק."
+   ],
+   "s": [
+    ["Earnings Whispers via Finviz", "https://finviz.com/news/420701/target-faces-a-higher-bar-as-whisper-number-tops-consensus-ahead-of-third-quarter-report"]
+   ]
+  },
+  {
+   "id": "low",
+   "t": "e",
+   "tk": "LOW",
+   "nm": "Lowe's",
+   "d": "2026-11-18T11:00:00Z",
+   "tm": "18.11, לפני הפתיחה",
+   "ev": "דוח Q3, עם שיחת ועידה ב-9:00 ET.",
+   "exp": "EPS $2.86 (כ-6%−), הכנסות $22.4 מיליארד (כ-7%+)",
+   "risk": 2,
+   "riskTx": "בינוני",
+   "m": [
+    ["תחזית 2026", "$92 מיליארד מכירות, EPS $12.25"],
+    ["מכירות בחנויות זהות", "ללא שינוי"],
+    ["הכנסות Q2", "$26.1 מיליארד (8.3%+)"],
+    ["מחיר", "כ-$224.55"]
+   ],
+   "b": [
+    "הצמיחה נשענת על רכישות ועל לקוחות מקצועיים (Pro). לקוחות DIY ושוק הדיור חלשים.",
+    "לפי BofA, החזרי מכס עשויים להוסיף כ-$0.53 למניה."
+   ],
+   "s": [
+    ["Zacks via Finviz", "https://finviz.com/news/422773/buy-home-depot-or-lowes-stock-ahead-of-much-anticipated-q3-results"],
+    ["Hudson Labs", "https://www.hudson-labs.com/research/lowes-q3-2026-earnings-preview-low-revenue-guidance-key-factors"],
+    ["Finimize", "https://finimize.com/content/bofa-sees-lowes-2026-outlook-looking-more-predictable"]
+   ]
+  },
+  {
+   "id": "panw",
+   "t": "e",
+   "tk": "PANW",
+   "nm": "Palo Alto Networks",
+   "d": "2026-11-18T21:05:00Z",
+   "tm": "18.11, אחרי הסגירה",
+   "ev": "דוח Q1 FY27. מבחן אמינות אחרי ירידה במניות התוכנה.",
+   "exp": "EPS $0.97, הכנסות $3.31 מיליארד (כ-34%+)",
+   "risk": 3,
+   "riskTx": "גבוה",
+   "m": [
+    ["NGS ARR", "מעל $9.1 מיליארד"],
+    ["התחייבויות לביצוע (RPO)", "מעל $20 מיליארד"],
+    ["תזרים חופשי, 2026", "$4.41 מיליארד"],
+    ["תמחור", "כ-75 פעמים הרווח הצפוי"],
+    ["מחיר", "כ-$326"]
+   ],
+   "b": [
+    "הצמיחה מוגדלת על ידי רכישת CyberArk ו-Chronosphere.",
+    "Fortinet צנחה ביותר מ-25% אחרי דוח שעקף את התחזיות. זה מראה כמה מעט מרווח יש למניות אבטחה יקרות.",
+    "הקונצנזוס נמצא בקצה העליון של תחזית ההכנסות."
+   ],
+   "s": [
+    ["Earnings Whispers", "https://www.earningswhispers.com/article/PANW/23140"],
+    ["TIKR", "https://www.tikr.com/blog/palo-alto-networks-is-down-27-from-its-high-is-it-time-to-sell-or-load-up"]
+   ]
+  },
+  {
+   "id": "wmt",
+   "t": "e",
+   "tk": "WMT",
+   "nm": "Walmart",
+   "d": "2026-11-19T13:00:00Z",
+   "tm": "19.11, לפני הפתיחה",
+   "ev": "דוח Q3 FY27 (אוג׳–אוק׳ 2026).",
+   "exp": "EPS $0.63–0.64, הכנסות כ-$187 מיליארד",
+   "risk": 1,
+   "riskTx": "נמוך",
+   "m": [
+    ["תחזית EPS לרבעון", "$0.62–0.64"],
+    ["תחזית EPS שנתית", "$2.80–2.87"],
+    ["תחזית צמיחת מכירות", "4%–5%"],
+    ["תנודה מוערכת באופציות", "כ-±1.6%"],
+    ["מחיר", "כ-$125.7"]
+   ],
+   "b": [
+    "הפרמיה על פני Target התרחבה. משקיעים מצפים שהחברה תעקוף את התחזיות ותעלה את התחזית.",
+    "Target מדווחת יום קודם, וזה יכול להשפיע על הציפיות."
+   ],
+   "s": [
+    ["Tradestie", "https://tradestie.com/news/wmt-earnings-nov-19-063-eps-expected-key-levels-to-watch-20261119/"],
+    ["Hudson Labs", "https://www.hudson-labs.com/research/walmart-q3-2027-earnings-preview-wmt-revenue-guidance-key-factors"],
+    ["Zacks via Finviz", "https://finviz.com/news/422820/walmart-target-and-nvidia-headline-a-pivotal-week-for-q3-earnings"]
+   ]
+  },
+  {
+   "id": "intu",
+   "t": "e",
+   "tk": "INTU",
+   "nm": "Intuit",
+   "d": "2026-11-19T21:05:00Z",
+   "tm": "19.11, אחרי הסגירה",
+   "ev": "דוח Q1 FY27. המבחן הראשון לאסטרטגיה החדשה: לוותר על צמיחה בטווח הקרוב כדי להגדיל את מספר הלקוחות.",
+   "exp": "EPS $2.47, הכנסות $4.30 מיליארד",
+   "risk": 2,
+   "riskTx": "בינוני",
+   "m": [
+    ["תחזית הכנסות שנתית", "$23.28–23.51 מיליארד (9%–10%+)"],
+    ["תחזית EPS מתואם שנתית", "$22.88–23.12"],
+    ["תמחור (Morgan Stanley)", "כ-14 פעמים הרווח ב-2027"],
+    ["עקיפות EPS", "7 מתוך 7 הרבעונים האחרונים"],
+    ["מחיר", "כ-$343"]
+   ],
+   "b": [
+    "מה לבדוק: את צמיחת הלקוחות שמשלמים ב-QuickBooks Online, שעמדה על 3% ברבעון הקודם.",
+    "המכפיל נמוך בגלל חשש שה-AI יפגע בעסקים של החברה."
+   ],
+   "s": [
+    ["Earnings Whispers", "https://www.earningswhispers.com/article/INTU/23180"],
+    ["Invezz", "https://invezz.com/news/2026/08/26/intuit-stock-plunges-after-weak-2027-revenue-outlook-is-it-a-buy/"]
+   ]
+  },
+  {
+   "id": "capr",
+   "t": "f",
+   "tk": "CAPR",
+   "nm": "Capricor Therapeutics",
+   "d": "2026-11-22T12:00:00Z",
+   "tm": "22.11 (יום ראשון). החלטה אפשרית כבר ב-20.11",
+   "ev": "החלטת FDA על deramiocel, טיפול תאי לניוון שרירים מסוג דושן.",
+   "exp": "אירוע בינארי",
+   "risk": 3,
+   "riskTx": "גבוה מאוד",
+   "m": [
+    ["תנודה מוערכת באופציות", "כ-±88%"],
+    ["סבירות לאישור (BiopharmaWatch)", "62%"],
+    ["ועדת מייעצים, יולי 2026", "9–3 נגד חוזק הראיות"],
+    ["יעד Oppenheimer אם תאושר", "$50"]
+   ],
+   "b": [
+    "ב-2025 החברה קיבלה מכתב דחייה (CRL). המועד נדחה ב-3 חודשים אחרי תיקון מהותי של הבקשה.",
+    "בנתוני HOPE-3 נמדדה הפחתה של כ-54% בהידרדרות תפקוד הגפיים העליונות.",
+    "כמעט כל שווי החברה תלוי במוצר אחד. HC Wainwright מצביעה על סיכון גבוה לדחייה."
+   ],
+   "s": [
+    ["Finviz", "https://finviz.com/news/384903/capricor-therapeutics-deramiocel-pdufa-date-extended-to-november-as-fda-reviews-bla-amendment"],
+    ["BiopharmaWatch", "https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates"],
+    ["Stocktwits", "https://stocktwits.com/news-articles/markets/equity/capr-stock-climbs-on-fda-s-three-month-deramiocel-extension-hc-wainwright-sticks-to-neutral-flags-high-rejection-risk/cZYKtybRJFV"]
+   ],
+   "drug": "deramiocel"
+  },
+  {
+   "id": "vrtx",
+   "t": "f",
+   "tk": "VRTX",
+   "nm": "Vertex Pharmaceuticals",
+   "d": "2026-11-30T12:00:00Z",
+   "tm": "30.11",
+   "ev": "החלטת FDA על אישור מואץ ל-povetacicept למחלת הכליות IgA nephropathy, בבדיקה בעדיפות.",
+   "exp": "סבירות גבוהה לאישור",
+   "risk": 1,
+   "riskTx": "נמוך",
+   "m": [
+    ["ירידה בחלבון בשתן (UPCR) בשבוע 36", "52%"],
+    ["מעמד", "Breakthrough Therapy"],
+    ["שוק יעד", "כ-330 אלף חולים בארה״ב ובאירופה"],
+    ["מינון", "זריקה ביתית פעם ב-4 שבועות"]
+   ],
+   "b": [
+    "אם תאושר, זו תהיה התרופה המסחרית הראשונה של החברה בתחום הכליות.",
+    "האישורים של Novartis ושל Vera מקטינים את הסיכון הרגולטורי, אבל Vertex תיכנס לשוק מאוחר יותר.",
+    "Vertex היא חברה גדולה, ולכן ההשפעה על המניה צפויה להיות מתונה."
+   ],
+   "s": [
+    ["Vertex", "https://news.vrtx.com/node/35066"],
+    ["BioSpace", "https://www.biospace.com/drug-development/vertexs-iga-nephropathy-drug-derisked-after-novartis-vera-approvals"]
+   ],
+   "drug": "povetacicept"
+  },
+  {
+   "id": "cogt",
+   "t": "f",
+   "tk": "COGT",
+   "nm": "Cogent Biosciences",
+   "d": "2026-11-30T12:00:00Z",
+   "tm": "30.11 (GIST) ו-30.12 (NonAdvSM)",
+   "ev": "שתי החלטות FDA על bezuclastinib: טיפול משולב עם sunitinib לגידולי GIST, ומסטוציטוזיס מערכתית לא-מתקדמת.",
+   "exp": "מעבר לחברה מסחרית",
+   "risk": 2,
+   "riskTx": "בינוני-גבוה",
+   "m": [
+    ["PEAK: יחס סיכון (HR)", "0.50"],
+    ["חציון הישרדות ללא התקדמות", "16.5 מול 9.2 חודשים"],
+    ["מזומנים (פרו-פורמה)", "כ-$866 מיליון, עד סוף 2028"],
+    ["הפסד נקי, Q1 2026", "$97.4 מיליון"]
+   ],
+   "b": [
+    "צוות המכירות כבר גויס.",
+    "החברה מגייסת כסף במכירת מניות בשיטת ATM, ולכן יש סיכון לדילול."
+   ],
+   "s": [
+    ["Cogent IR", "https://investors.cogentbio.com/news-releases/news-release-details/cogent-biosciences-reports-recent-business-highlights-and-11"],
+    ["Barchart", "https://www.barchart.com/story/news/3754111/cogent-biosciences-reports-recent-business-highlights-and-second-quarter-2026-financial-results"]
+   ],
+   "drug": "bezuclastinib"
+  },
+  {
+   "id": "cort",
+   "t": "f",
+   "tk": "CORT",
+   "nm": "Corcept Therapeutics",
+   "d": "2026-12-17T12:00:00Z",
+   "tm": "17.12",
+   "ev": "החלטת FDA על בקשה מחודשת לאשר relacorilant לתסמונת קושינג.",
+   "exp": "הרחבה של זיכיון הקושינג",
+   "risk": 2,
+   "riskTx": "בינוני",
+   "m": [
+    ["הכנסות Q2 2026", "$256.1 מיליון (32%+)"],
+    ["Korlym / Lifyorli", "$208.6 / $47.6 מיליון"],
+    ["תחזית הכנסות 2026", "$1.1–1.2 מיליארד"],
+    ["רווח נקי, Q2", "$43 מיליון"],
+    ["מזומנים", "$544.6 מיליון"],
+    ["שווי שוק (אוג׳) / שורט", "כ-$12.6 מיליארד / כ-9.9%"]
+   ],
+   "b": [
+    "ההוצאות התפעוליות עלו ב-28%.",
+    "עד סוף השנה צפויות גם תוצאות ניסוי MONARCH במחלת הכבד MASH."
+   ],
+   "s": [
+    ["BusinessWire", "https://www.businesswire.com/news/home/20260729465503/en/"],
+    ["Panabee", "https://www.panabee.com/news/corcept-therapeutics-earnings-q3-2026"],
+    ["Merlintrader", "https://www.merlintrader.com/corcept-therapeutics-inc/"]
+   ],
+   "drug": "relacorilant"
+  }
+ ],
+ "extra": [
+  {"tk": "BBY", "t": "e", "d": "2026-11-24", "nm": "Best Buy, דוח Q3"},
+  {"tk": "BBIO", "t": "f", "d": "2026-11-27", "nm": "BridgeBio, BBP-418"},
+  {"tk": "VNDA", "t": "f", "d": "2026-12-12", "nm": "Vanda, Quimilza (12.12)"},
+  {"tk": "COGT", "t": "f", "d": "2026-12-30", "nm": "Cogent, NonAdvSM"},
+  {"tk": "PRAX", "t": "f", "d": "2026-12-27", "nm": "Praxis, relutrigine (27.12)"}
+ ]
+}
