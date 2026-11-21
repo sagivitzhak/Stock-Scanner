@@ -224,7 +224,8 @@ def build():
         })
 
     macro = [{"tk": "FOMC", "t": "m", "d": d, "nm": n} for d, n in FOMC if cutoff < parse_date(d) < horizon]
-    extra = [x for x in extra if cutoff < parse_date(x["d"])] + macro
+    carded = {(e["tk"], e["d"][:10]) for e in out}
+    extra = [x for x in extra if cutoff < parse_date(x["d"]) and (x["tk"], x["d"][:10]) not in carded] + macro
 
     data = {"updated": NOW.strftime("%Y-%m-%dT%H:%M:%SZ"), "events": out, "extra": extra, "live": live}
     OUT.write_text("window.DATA=" + json.dumps(data, ensure_ascii=False, indent=0) + ";\n", encoding="utf-8")
