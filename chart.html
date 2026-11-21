@@ -130,6 +130,7 @@ const names={};
 (D.events||[]).forEach(e=>names[e.tk]=names[e.tk]||e.nm);
 Object.entries(D.live||{}).forEach(([k,v])=>names[k]=names[k]||v.name);
 (D.extra||[]).filter(x=>x.t!=="m").forEach(x=>names[x.tk]=names[x.tk]||x.nm);
+if(qtk&&!names[qtk])names[qtk]=qtk;
 const tks=Object.keys(names).sort();
 if(!st.tk||!tks.includes(st.tk))st.tk=tks.includes("NVDA")?"NVDA":tks[0];
 $("#tk").innerHTML=tks.map(t=>'<option value="'+t+'">'+t+' · '+names[t]+'</option>').join("");

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>סורק פריצות · לוח קטליזטורים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;--bg:light-dark(#ffe3dc,#1c1512);--ink:light-dark(#1a1817,#f3e9e4);--mute:light-dark(#5d524e,#b8a9a2);--line:light-dark(#e9c3b8,#3d302b);--card:light-dark(#fff4f0,#251c18);--teal:light-dark(#0d7680,#3fb3bd);--claret:light-dark(#990f3d,#e0567f)}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Heebo,system-ui,sans-serif}
+.band{padding:clamp(18px,3vw,36px) max(4vw,14px)}
+.wrap{max-width:1320px;margin:0 auto}
+a{color:inherit}
+.back{font-size:14px;color:var(--mute)}
+h1{font-weight:800;font-size:clamp(28px,4vw,44px);line-height:1.05;margin:8px 0 6px;letter-spacing:-.02em;text-wrap:balance}
+.lead{color:var(--mute);margin:0 0 16px;max-width:80ch}
+.figs{display:flex;flex-wrap:wrap;gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:16px;width:fit-content}
+.figs div{background:var(--bg);padding:10px 16px}
+.figs b{display:block;font-size:26px;font-weight:800;line-height:1.1}
+.figs span{font-size:13px;color:var(--mute)}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-block:1px solid var(--line);padding:10px 0;margin-bottom:14px}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button,.btn,select,input{font:500 15px Heebo,sans-serif;min-height:44px;padding:0 14px;border:1px solid var(--ink);border-radius:3px;background:transparent;color:var(--ink);cursor:pointer}
+input,select{background:var(--card)}
+input{width:min(220px,100%);cursor:text}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.btn.run{background:var(--claret);border-color:var(--claret);color:#fff;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.grow{flex:1}
+.tw{overflow-x:auto;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:900px}
+th{position:sticky;top:0;background:var(--card);text-align:right;font-weight:700;color:var(--mute);font-size:13px;padding:10px 8px;border-bottom:2px solid var(--ink);cursor:pointer;white-space:nowrap;user-select:none}
+th[aria-sort=descending]::after{content:" ▼"}th[aria-sort=ascending]::after{content:" ▲"}
+td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
+tr.row{cursor:pointer}tr.row:hover td{background:color-mix(in srgb,var(--line) 35%,transparent)}
+.tk{font-weight:800;font-size:16px;direction:ltr;display:inline-block}
+.num{direction:ltr;text-align:left;white-space:nowrap;font-variant-numeric:tabular-nums}
+.up{color:var(--teal);font-weight:700}
+.sc{display:flex;align-items:center;gap:6px;direction:ltr;justify-content:flex-end}
+.sc i{display:block;height:8px;border-radius:4px;background:var(--teal);min-width:4px}
+.sc b{font-size:14px;width:2.2em;text-align:left}
+.tag{font-size:11px;border:1px solid var(--line);border-radius:3px;padding:0 5px;color:var(--mute);white-space:nowrap}
+.det td{background:color-mix(in srgb,var(--bg) 60%,transparent);font-size:13px}
+.det ul{margin:4px 0;padding-inline-start:18px;columns:2;column-gap:28px}
+.det li.ok{color:var(--teal)}.det li.no{color:var(--mute);text-decoration:line-through}
+.det a{font-weight:700;color:var(--teal)}
+.empty{padding:36px;text-align:center;color:var(--mute)}
+.note{font-size:13px;color:var(--mute);margin-top:14px;max-width:90ch}
+details.how{margin:0 0 14px;background:var(--card);border:1px solid var(--line);border-radius:4px;padding:10px 14px}
+details.how summary{cursor:pointer;font-weight:700}
+details.how ul{margin:8px 0 0;padding-inline-start:20px;font-size:14px}
+@media(max-width:700px){.det ul{columns:1}}
+</style>
+</head>
+<body>
+<section class="band"><div class="wrap">
+  <a class="back" href="./">→ חזרה ללוח הקטליזטורים</a>
+  <h1 id="h1">סורק פריצות</h1>
+  <p class="lead">מניות מ-S&amp;P 500 ו-Nasdaq-100 שסגרו מעל השיא של 20 הנרות הקודמים, בנפח גבוה מהממוצע. הציון מסכם עשרה אינדיקטורים שמאשרים את הפריצה. לחיצה על שורה מציגה את הפירוט וקישור לגרף.</p>
+  <div class="figs" id="figs"></div>
+  <details class="how"><summary>איך נבחרות המניות</summary>
+    <ul>
+      <li><b>תנאי חובה:</b> סגירה מעל השיא של 20 הנרות הקודמים (יומי: כחודש מסחר; שבועי: כ-5 חודשים), בנפח של פי 1.3 לפחות מהממוצע (20 ימים / 10 שבועות). בשבוע שעוד לא נסגר, הנפח מנורמל לפי מספר ימי המסחר שעברו.</li>
+      <li><b>סינון:</b> מחיר מעל $5 ומחזור יומי ממוצע מעל $5 מיליון.</li>
+      <li><b>הציון (0–100):</b> עשר בדיקות, 10 נקודות לכל אחת: מגמה מעל ממוצע עולה (50 יום / 10 שבועות), ממוצע קצר מעל ארוך (50/200 יום, 10/30 שבועות), RSI בין 55 ל-80, MACD מעל קו האות ומעל 0, ADX מעל 20 עם +DI מוביל, OBV מעל ממוצע 20, סגירה ברבע העליון של הנר, נפח פי 2 ומעלה, שיא 52 שבועות, ויציאה מכיווץ של רצועות בולינגר.</li>
+    </ul>
+  </details>
+  <div class="bar">
+    <div class="seg" role="group" aria-label="טווח">
+      <button data-iv="d" aria-pressed="true">פריצה יומית</button>
+      <button data-iv="w" aria-pressed="false">פריצה שבועית</button>
+    </div>
+    <select id="min" aria-label="ציון מינימלי"><option value="0">כל הציונים</option><option value="50">ציון 50+</option><option value="70" selected>ציון 70+</option><option value="80">ציון 80+</option></select>
+    <select id="ix" aria-label="מדד"><option value="">כל המדדים</option><option value="S&amp;P 500">S&amp;P 500</option><option value="Nasdaq-100">Nasdaq-100</option></select>
+    <input type="search" id="q" placeholder="סימבול, חברה או סקטור" aria-label="חיפוש">
+    <span class="grow"></span>
+    <a class="btn run" id="run" href="https://github.com/sagivitzhak/Stock-Scanner/actions/workflows/scan.yml" target="_blank" rel="noopener" title="פותח את GitHub. שם לוחצים Run workflow, והתוצאות מתעדכנות כאן אחרי כ-3 דקות">🔄 הרץ סריקה עכשיו</a>
+  </div>
+  <div class="tw"><table>
+    <thead><tr>
+      <th data-k="tk">סימבול</th><th data-k="nm">חברה</th><th data-k="sec">סקטור</th>
+      <th data-k="px">מחיר</th><th data-k="chg">שינוי</th><th data-k="above">מעל הרמה</th>
+      <th data-k="vr">נפח ביחס לממוצע</th><th data-k="rsi">RSI</th><th data-k="adx">ADX</th><th data-k="score" aria-sort="descending">ציון</th>
+    </tr></thead>
+    <tbody id="tb"><tr><td colspan="10" class="empty">טוען…</td></tr></tbody>
+  </table></div>
+  <p class="note" id="foot">הסריקה רצה אוטומטית בכל ערב מסחר בשעה 00:30 שעון ישראל, אחרי סגירת וול סטריט. הכפתור "הרץ סריקה עכשיו" פותח את GitHub: לוחצים שם Run workflow, ואחרי כ-3 דקות מרעננים את העמוד. נתוני מחיר מ-Yahoo Finance. פריצה טכנית היא תיאור של תנועת המחיר, לא המלצה לקנות.</p>
+</div></section>
+<script>
+{
+const $=s=>document.querySelector(s);
+const st={iv:"d",min:70,ix:"",q:"",k:"score",dir:-1,open:null};
+try{Object.assign(st,JSON.parse(localStorage.getItem("scan-state")||"{}"));st.open=null}catch(e){}
+const save=()=>{try{localStorage.setItem("scan-state",JSON.stringify(st))}catch(e){}};
+let S=null;
+const f=(x,d=2)=>x==null?"–":Number(x).toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function rows(){
+  if(!S)return[];
+  const q=st.q.trim().toLowerCase();
+  let r=(S[st.iv]||[]).filter(x=>x.score>=st.min&&(!st.ix||(x.ix||[]).includes(st.ix))&&(!q||(x.tk+" "+x.nm+" "+x.sec).toLowerCase().includes(q)));
+  const k=st.k;r.sort((a,b)=>{const A=a[k],B=b[k];if(typeof A==="string")return st.dir*A.localeCompare(B);return st.dir*((A??-1e9)-(B??-1e9))});
+  return r;
+}
+function render(){
+  document.querySelectorAll("[data-iv]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.iv===st.iv));
+  document.querySelectorAll("th").forEach(th=>th.dataset.k===st.k?th.setAttribute("aria-sort",st.dir<0?"descending":"ascending"):th.removeAttribute("aria-sort"));
+  $("#min").value=st.min;$("#ix").value=st.ix;$("#q").value=st.q;
+  if(!S)return;
+  const all=S[st.iv]||[],r=rows(),strong=all.filter(x=>x.score>=70).length;
+  $("#h1").textContent=all.length?all.length+" מניות בפריצה "+(st.iv==="d"?"יומית":"שבועית")+", "+strong+" מהן בציון 70 ומעלה":"אין פריצות "+(st.iv==="d"?"יומיות":"שבועיות")+" בסריקה האחרונה";
+  const at=new Date(S.at);
+  $("#figs").innerHTML='<div><b>'+S.scanned+'</b><span>מניות נסרקו</span></div><div><b>'+(S.d||[]).length+'</b><span>פריצות יומיות</span></div><div><b>'+(S.w||[]).length+'</b><span>פריצות שבועיות</span></div><div><b style="font-size:18px">'+at.toLocaleString("he-IL",{dateStyle:"short",timeStyle:"short"})+'</b><span>סריקה אחרונה</span></div>';
+  if(!r.length){$("#tb").innerHTML='<tr><td colspan="10" class="empty">'+(all.length?"אין מניות שעומדות בסינון. נסה ציון נמוך יותר.":"אין פריצות בטווח הזה בסריקה האחרונה.")+'</td></tr>';return}
+  $("#tb").innerHTML=r.map(x=>{
+    const open=st.open===x.tk;
+    const row='<tr class="row" data-tk="'+esc(x.tk)+'" aria-expanded="'+open+'"><td><span class="tk">'+esc(x.tk)+'</span></td><td>'+esc(x.nm)+'</td><td><span class="tag">'+esc(x.sec||"–")+'</span></td><td class="num">$'+f(x.px)+'</td><td class="num up">+'+f(x.chg)+'%</td><td class="num">+'+f(x.above)+'%</td><td class="num">×'+f(x.vr,1)+'</td><td class="num">'+f(x.rsi,0)+'</td><td class="num">'+f(x.adx,0)+'</td><td><div class="sc"><b>'+x.score+'</b><i style="width:'+(x.score*0.6)+'px"></i></div></td></tr>';
+    const det=open?'<tr class="det"><td colspan="10"><div>פריצה מעל $'+f(x.lvl)+' (שיא '+(st.iv==="d"?"20 ימים":"20 שבועות")+'), נר של '+esc(x.date)+'. '+(x.ix||[]).map(esc).join(" · ")+'</div><ul>'+x.pass.map(p=>'<li class="ok">✓ '+esc(p)+'</li>').join("")+x.fail.map(p=>'<li class="no">'+esc(p)+'</li>').join("")+'</ul><a href="chart.html?tk='+encodeURIComponent(x.tk)+'">📈 פתח גרף טכני</a></td></tr>':"";
+    return row+det}).join("");
+}
+document.querySelectorAll("[data-iv]").forEach(b=>b.addEventListener("click",()=>{st.iv=b.dataset.iv;st.open=null;save();render()}));
+$("#min").addEventListener("change",e=>{st.min=+e.target.value;save();render()});
+$("#ix").addEventListener("change",e=>{st.ix=e.target.value;save();render()});
+$("#q").addEventListener("input",e=>{st.q=e.target.value;save();render()});
+document.querySelectorAll("th").forEach(th=>th.addEventListener("click",()=>{const k=th.dataset.k;if(st.k===k)st.dir*=-1;else{st.k=k;st.dir=["tk","nm","sec"].includes(k)?1:-1}save();render()}));
+$("#tb").addEventListener("click",e=>{const tr=e.target.closest("tr.row");if(!tr||e.target.closest("a"))return;st.open=st.open===tr.dataset.tk?null:tr.dataset.tk;render()});
+fetch("scan.json",{cache:"no-cache"}).then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{S=j;render()}).catch(()=>{$("#tb").innerHTML='<tr><td colspan="10" class="empty">עוד אין תוצאות סריקה. לחץ "הרץ סריקה עכשיו", או חכה לריצה של הלילה.</td></tr>'});
+render();
+}
+</script>
+</body>
+</html>
