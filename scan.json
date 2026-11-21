@@ -1,8 +1,8 @@
 {
-"at": "2026-11-21T19:05:11Z",
-"universe": 5373,
-"scanned": 5373,
-"liquid": 2701,
+"at": "2026-11-21T19:14:37Z",
+"universe": 5087,
+"scanned": 5087,
+"liquid": 2658,
 "rules": {
 "d": {
 "lookback": 20,
@@ -60,7 +60,6 @@
 "EDHL",
 "ELVN",
 "ENR",
-"FNGD",
 "GIS",
 "GPN",
 "HDB",
@@ -96,42 +95,12 @@
 "TSN",
 "TTWO",
 "TU",
-"VXX",
 "WKC",
 "WWD",
 "YMM",
 "ZTS"
 ],
 "d": [
-{
-"px": 27.31,
-"chg": 14.6,
-"lvl": 23.88,
-"above": 14.36,
-"vr": 2.83,
-"rsi": 72.4,
-"adx": 33.5,
-"score": 70,
-"pass": [
-"מגמה: מעל ממוצע 50 עולה",
-"RSI 55–80",
-"MACD מעל קו האות ומעל 0",
-"ADX>20 ו-+DI מוביל",
-"OBV מעל ממוצע 20",
-"סגירה ברבע העליון של הנר",
-"נפח פי 2 ומעלה"
-],
-"fail": [
-"ממוצע 50 מעל 200",
-"שיא 52 שבועות",
-"יציאה מכיווץ בולינגר"
-],
-"date": "2026-11-20",
-"tk": "VXX",
-"nm": "iPath Series B S&P 500 VIX Short-Term Futures ETN",
-"sec": "",
-"ix": []
-},
 {
 "px": 163.59,
 "chg": 4.41,
@@ -157,7 +126,7 @@
 ],
 "date": "2026-11-20",
 "tk": "PLMR",
-"nm": "Palomar Holdings, Inc.",
+"nm": "Palomar Holdings, Inc",
 "sec": "",
 "ix": []
 },
@@ -273,7 +242,7 @@
 ],
 "date": "2026-11-20",
 "tk": "TU",
-"nm": "Telus Corporation Ordinary Shares",
+"nm": "Telus Corporation",
 "sec": "",
 "ix": []
 },
@@ -302,7 +271,7 @@
 ],
 "date": "2026-11-20",
 "tk": "RCI",
-"nm": "Rogers Communication, Inc.",
+"nm": "Rogers Communication, Inc",
 "sec": "",
 "ix": []
 },
@@ -331,7 +300,7 @@
 ],
 "date": "2026-11-20",
 "tk": "CALM",
-"nm": "Cal-Maine Foods, Inc.",
+"nm": "Cal-Maine Foods, Inc",
 "sec": "",
 "ix": []
 },
@@ -360,7 +329,7 @@
 ],
 "date": "2026-11-20",
 "tk": "KRSA",
-"nm": "Korsana Biosciences, Inc.",
+"nm": "Korsana Biosciences, Inc",
 "sec": "",
 "ix": []
 }
@@ -422,7 +391,7 @@
 ],
 "date": "2026-11-20",
 "tk": "KRSA",
-"nm": "Korsana Biosciences, Inc.",
+"nm": "Korsana Biosciences, Inc",
 "sec": "",
 "ix": []
 },
@@ -451,7 +420,7 @@
 ],
 "date": "2026-11-20",
 "tk": "BILL",
-"nm": "BILL Holdings, Inc.",
+"nm": "BILL Holdings, Inc",
 "sec": "",
 "ix": []
 },
@@ -480,7 +449,7 @@
 ],
 "date": "2026-11-20",
 "tk": "ENR",
-"nm": "Energizer Holdings, Inc.",
+"nm": "Energizer Holdings, Inc",
 "sec": "",
 "ix": []
 },
@@ -514,35 +483,6 @@
 "ix": []
 },
 {
-"px": 27.31,
-"chg": 45.81,
-"lvl": 23.51,
-"above": 16.16,
-"vr": 2.09,
-"rsi": 62.5,
-"adx": 21.9,
-"score": 70,
-"pass": [
-"מגמה: מעל ממוצע 10 עולה",
-"RSI 55–80",
-"ADX>20 ו-+DI מוביל",
-"OBV מעל ממוצע 20",
-"סגירה ברבע העליון של הנר",
-"נפח פי 2 ומעלה",
-"יציאה מכיווץ בולינגר"
-],
-"fail": [
-"ממוצע 10 מעל 30",
-"MACD מעל קו האות ומעל 0",
-"שיא 52 שבועות"
-],
-"date": "2026-11-20",
-"tk": "VXX",
-"nm": "iPath Series B S&P 500 VIX Short-Term Futures ETN",
-"sec": "",
-"ix": []
-},
-{
 "px": 94.33,
 "chg": 6.72,
 "lvl": 92.75,
@@ -567,7 +507,7 @@
 ],
 "date": "2026-11-20",
 "tk": "JJSF",
-"nm": "J & J Snack Foods Corp.",
+"nm": "J & J Snack Foods Corp",
 "sec": "",
 "ix": []
 },
@@ -596,7 +536,7 @@
 ],
 "date": "2026-11-20",
 "tk": "CRAI",
-"nm": "CRA International,Inc.",
+"nm": "CRA International,Inc",
 "sec": "",
 "ix": []
 },
@@ -625,7 +565,7 @@
 ],
 "date": "2026-11-20",
 "tk": "TAK",
-"nm": "Takeda Pharmaceutical Company Limited American Depositary Shares (each representing 1/2 of a share of)",
+"nm": "Takeda Pharmaceutical Company Limited (ADR)",
 "sec": "",
 "ix": []
 },
@@ -683,7 +623,7 @@
 ],
 "date": "2026-11-20",
 "tk": "BRBR",
-"nm": "BellRing Brands, Inc.",
+"nm": "BellRing Brands, Inc",
 "sec": "",
 "ix": []
 },
@@ -712,7 +652,7 @@
 ],
 "date": "2026-11-20",
 "tk": "TU",
-"nm": "Telus Corporation Ordinary Shares",
+"nm": "Telus Corporation",
 "sec": "",
 "ix": []
 },
@@ -775,35 +715,6 @@
 "ix": [
 "S&P 500"
 ]
-},
-{
-"px": 44.04,
-"chg": 41.29,
-"lvl": 39.81,
-"above": 10.63,
-"vr": 1.47,
-"rsi": 60.4,
-"adx": 16.7,
-"score": 40,
-"pass": [
-"מגמה: מעל ממוצע 10 עולה",
-"RSI 55–80",
-"OBV מעל ממוצע 20",
-"סגירה ברבע העליון של הנר"
-],
-"fail": [
-"ממוצע 10 מעל 30",
-"MACD מעל קו האות ומעל 0",
-"ADX>20 ו-+DI מוביל",
-"נפח פי 2 ומעלה",
-"שיא 52 שבועות",
-"יציאה מכיווץ בולינגר"
-],
-"date": "2026-11-20",
-"tk": "FNGD",
-"nm": "MicroSectors FANG  Index -3X Inverse Leveraged ETNs due January 8, 2038",
-"sec": "",
-"ix": []
 },
 {
 "px": 141.33,
@@ -896,7 +807,7 @@
 ],
 "date": "2026-11-20",
 "tk": "YMM",
-"nm": "Full Truck Alliance Co. Ltd. American Depositary Shares (each representing 20 (A) Ordinary Shares)",
+"nm": "Full Truck Alliance Co. Ltd (ADR)",
 "sec": "",
 "ix": []
 },
@@ -991,7 +902,7 @@
 ],
 "date": "2026-11-20",
 "tk": "WWD",
-"nm": "Woodward, Inc.",
+"nm": "Woodward, Inc",
 "sec": "",
 "ix": []
 },
@@ -1055,7 +966,7 @@
 ],
 "date": "2026-11-20",
 "tk": "CALM",
-"nm": "Cal-Maine Foods, Inc.",
+"nm": "Cal-Maine Foods, Inc",
 "sec": "",
 "ix": []
 },
@@ -1086,7 +997,7 @@
 ],
 "date": "2026-11-20",
 "tk": "PSMT",
-"nm": "PriceSmart, Inc.",
+"nm": "PriceSmart, Inc",
 "sec": "",
 "ix": []
 },
@@ -1179,7 +1090,7 @@
 ],
 "date": "2026-11-20",
 "tk": "ELVN",
-"nm": "Enliven Therapeutics, Inc.",
+"nm": "Enliven Therapeutics, Inc",
 "sec": "",
 "ix": []
 },
@@ -1210,7 +1121,7 @@
 ],
 "date": "2026-11-20",
 "tk": "KFRC",
-"nm": "Kforce, Inc.",
+"nm": "Kforce, Inc",
 "sec": "",
 "ix": []
 },
@@ -1308,7 +1219,7 @@
 ],
 "date": "2026-11-20",
 "tk": "BMRN",
-"nm": "BioMarin Pharmaceutical Inc.",
+"nm": "BioMarin Pharmaceutical Inc",
 "sec": "",
 "ix": []
 },
@@ -1339,7 +1250,7 @@
 ],
 "date": "2026-11-20",
 "tk": "HROW",
-"nm": "Harrow, Inc.",
+"nm": "Harrow, Inc",
 "sec": "",
 "ix": []
 },
@@ -1401,7 +1312,7 @@
 ],
 "date": "2026-11-20",
 "tk": "ASMB",
-"nm": "Assembly Biosciences, Inc.",
+"nm": "Assembly Biosciences, Inc",
 "sec": "",
 "ix": []
 },
@@ -1463,7 +1374,7 @@
 ],
 "date": "2026-11-20",
 "tk": "PSTL",
-"nm": "Postal Realty Trust, Inc. (A)",
+"nm": "Postal Realty Trust, Inc",
 "sec": "",
 "ix": []
 },
@@ -1494,7 +1405,7 @@
 ],
 "date": "2026-11-20",
 "tk": "AVLN",
-"nm": "Avalyn Pharma Inc.",
+"nm": "Avalyn Pharma Inc",
 "sec": "",
 "ix": []
 },
@@ -1525,7 +1436,7 @@
 ],
 "date": "2026-11-20",
 "tk": "TNDM",
-"nm": "Tandem Diabetes Care, Inc.",
+"nm": "Tandem Diabetes Care, Inc",
 "sec": "",
 "ix": []
 }
@@ -1558,7 +1469,7 @@
 ],
 "date": "2026-11-20",
 "tk": "TU",
-"nm": "Telus Corporation Ordinary Shares",
+"nm": "Telus Corporation",
 "sec": "",
 "ix": []
 },
@@ -1589,7 +1500,7 @@
 ],
 "date": "2026-11-20",
 "tk": "RCI",
-"nm": "Rogers Communication, Inc.",
+"nm": "Rogers Communication, Inc",
 "sec": "",
 "ix": []
 },
@@ -1627,37 +1538,6 @@
 ]
 },
 {
-"px": 44.04,
-"chg": 41.29,
-"ma": 32.17,
-"above": 36.89,
-"bars": 0,
-"dd": -49.6,
-"vr": 1.47,
-"rsi": 60.4,
-"adx": 16.7,
-"score": 70,
-"pass": [
-"RSI עלה מעל 50",
-"+DI חצה מעל -DI",
-"שפל עולה (מבנה מחירים)",
-"פריצת השיא המקומי האחרון",
-"נפח פי 1.2+ ביום החצייה",
-"OBV מעל ממוצע 20",
-"מעל ממוצע ארוך (40)"
-],
-"fail": [
-"MACD חצה את קו האות (5 נרות אחרונים)",
-"ממוצע מהיר מעל הממוצע המרכזי",
-"הממוצע המרכזי כבר מתיישר"
-],
-"date": "2026-11-20",
-"tk": "FNGD",
-"nm": "MicroSectors FANG  Index -3X Inverse Leveraged ETNs due January 8, 2038",
-"sec": "",
-"ix": []
-},
-{
 "px": 23.54,
 "chg": 6.56,
 "ma": 22.22,
@@ -1666,7 +1546,7 @@
 "dd": -9.6,
 "vr": 1.04,
 "rsi": 57.8,
-"adx": 19.5,
+"adx": 19.6,
 "score": 70,
 "pass": [
 "MACD חצה את קו האות (5 נרות אחרונים)",
@@ -1724,37 +1604,6 @@
 ]
 },
 {
-"px": 27.31,
-"chg": 45.81,
-"ma": 21.55,
-"above": 26.74,
-"bars": 0,
-"dd": -31.6,
-"vr": 2.09,
-"rsi": 62.5,
-"adx": 21.9,
-"score": 60,
-"pass": [
-"RSI עלה מעל 50",
-"+DI חצה מעל -DI",
-"פריצת השיא המקומי האחרון",
-"נפח פי 1.2+ ביום החצייה",
-"OBV מעל ממוצע 20",
-"מעל ממוצע ארוך (40)"
-],
-"fail": [
-"MACD חצה את קו האות (5 נרות אחרונים)",
-"שפל עולה (מבנה מחירים)",
-"ממוצע מהיר מעל הממוצע המרכזי",
-"הממוצע המרכזי כבר מתיישר"
-],
-"date": "2026-11-20",
-"tk": "VXX",
-"nm": "iPath Series B S&P 500 VIX Short-Term Futures ETN",
-"sec": "",
-"ix": []
-},
-{
 "px": 14.29,
 "chg": -5.61,
 "ma": 13.64,
@@ -1781,7 +1630,7 @@
 ],
 "date": "2026-11-20",
 "tk": "SBGI",
-"nm": "Sinclair, Inc.",
+"nm": "Sinclair, Inc",
 "sec": "",
 "ix": []
 },
@@ -1874,7 +1723,7 @@
 ],
 "date": "2026-11-20",
 "tk": "BRBR",
-"nm": "BellRing Brands, Inc.",
+"nm": "BellRing Brands, Inc",
 "sec": "",
 "ix": []
 },
@@ -1936,7 +1785,7 @@
 ],
 "date": "2026-11-20",
 "tk": "PII",
-"nm": "Polaris Inc.",
+"nm": "Polaris Inc",
 "sec": "",
 "ix": []
 },
@@ -2000,7 +1849,7 @@
 ],
 "date": "2026-11-20",
 "tk": "MH",
-"nm": "McGraw Hill, Inc.",
+"nm": "McGraw Hill, Inc",
 "sec": "",
 "ix": []
 },
@@ -2031,7 +1880,7 @@
 ],
 "date": "2026-11-20",
 "tk": "IBP",
-"nm": "Installed Building Products, Inc.",
+"nm": "Installed Building Products, Inc",
 "sec": "",
 "ix": []
 },
@@ -2062,7 +1911,7 @@
 ],
 "date": "2026-11-20",
 "tk": "ASR",
-"nm": "Grupo Aeroportuario del Sureste, S.A. de C.V.",
+"nm": "Grupo Aeroportuario del Sureste, S.A. de C.V",
 "sec": "",
 "ix": []
 },
@@ -2157,7 +2006,7 @@
 ],
 "date": "2026-11-20",
 "tk": "BH-A",
-"nm": "Biglari Holdings Inc. (A)",
+"nm": "Biglari Holdings Inc",
 "sec": "",
 "ix": []
 },
@@ -2188,7 +2037,7 @@
 ],
 "date": "2026-11-20",
 "tk": "PBH",
-"nm": "Prestige Consumer Healthcare Inc.",
+"nm": "Prestige Consumer Healthcare Inc",
 "sec": "",
 "ix": []
 }
