@@ -38,7 +38,8 @@ REV = {
     "d": {"ma": 50, "fast": 20, "long": 200, "slope_lb": 20, "lag": 10, "recent": 3, "swing": 10, "vol_avg": 20},
     "w": {"ma": 30, "fast": 10, "long": 40, "slope_lb": 10, "lag": 5, "recent": 2, "swing": 6, "vol_avg": 10},
 }
-SKIP_NAME = re.compile(r"warrant|\bunits?\b|\brights?\b|preferred|\bnotes?\b|debenture|%|acquisition corp|\bspac\b", re.I)
+SKIP_NAME = re.compile(r"warrant|\bunits?\b|\brights?\b|preferred|\bnotes?\b|debenture|%|acquisition corp|\bspac\b"
+                       r"|\betns?\b|leveraged|inverse|\bfund\b|\bindex\b|\bdue \d{4}", re.I)
 
 
 def log(*a):
@@ -83,6 +84,12 @@ def nasdaq100():
     return []
 
 
+def clean_name(nm):
+    adr = "depositary" in nm.lower()
+    nm = re.split(r" - | American Depositary| Ordinary Shares| Common Stock| Common Shares| Class [A-C] ", nm)[0]
+    return (nm.strip(" ,.") + (" (ADR)" if adr else "")).strip()
+
+
 def us_listed():
     """All US-listed common stocks from Nasdaq Trader's symbol directory (ETFs, tests, warrants etc. removed)."""
     out = {}
@@ -102,7 +109,7 @@ def us_listed():
                 sym, nm = r[sym_col].strip(), str(r["Security Name"])
                 if "$" in sym or SKIP_NAME.search(nm) or len(sym) > 6:
                     continue
-                out[sym] = nm.split(" - ")[0].replace(" Common Stock", "").replace(" Class A", " (A)").strip()
+                out[sym] = clean_name(nm)
         except Exception as e:
             log(f"symbol directory failed: {url} ({e})")
     return out
