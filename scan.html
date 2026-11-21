@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>סורק פריצות · לוח קטליזטורים</title>
+<title>סורק מניות · לוח קטליזטורים</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
@@ -56,42 +56,51 @@ details.how ul{margin:8px 0 0;padding-inline-start:20px;font-size:14px}
 <body>
 <section class="band"><div class="wrap">
   <a class="back" href="./">→ חזרה ללוח הקטליזטורים</a>
-  <h1 id="h1">סורק פריצות</h1>
-  <p class="lead">מניות מ-S&amp;P 500 ו-Nasdaq-100 שסגרו מעל השיא של 20 הנרות הקודמים, בנפח גבוה מהממוצע. הציון מסכם עשרה אינדיקטורים שמאשרים את הפריצה. לחיצה על שורה מציגה את הפירוט וקישור לגרף.</p>
+  <h1 id="h1">סורק מניות</h1>
+  <p class="lead">סריקה של כל המניות הרגילות שנסחרות בארה״ב (Nasdaq, NYSE, NYSE American), בשני מצבים: <b>פריצות</b>, כלומר סגירה מעל השיא האחרון בנפח גבוה, ו<b>מהפך למגמת עלייה</b>, כלומר מגמה יורדת שהתהפכה עכשיו. הציון מסכם עשרה אינדיקטורים שמאשרים את התנועה. לחיצה על שורה מציגה את הפירוט וקישור לגרף.</p>
   <div class="figs" id="figs"></div>
   <details class="how"><summary>איך נבחרות המניות</summary>
     <ul>
       <li><b>תנאי חובה:</b> סגירה מעל השיא של 20 הנרות הקודמים (יומי: כחודש מסחר; שבועי: כ-5 חודשים), בנפח של פי 1.3 לפחות מהממוצע (20 ימים / 10 שבועות). בשבוע שעוד לא נסגר, הנפח מנורמל לפי מספר ימי המסחר שעברו.</li>
       <li><b>סינון:</b> מחיר מעל $5 ומחזור יומי ממוצע מעל $5 מיליון.</li>
-      <li><b>הציון (0–100):</b> עשר בדיקות, 10 נקודות לכל אחת: מגמה מעל ממוצע עולה (50 יום / 10 שבועות), ממוצע קצר מעל ארוך (50/200 יום, 10/30 שבועות), RSI בין 55 ל-80, MACD מעל קו האות ומעל 0, ADX מעל 20 עם +DI מוביל, OBV מעל ממוצע 20, סגירה ברבע העליון של הנר, נפח פי 2 ומעלה, שיא 52 שבועות, ויציאה מכיווץ של רצועות בולינגר.</li>
+      <li><b>מהפך למגמת עלייה, תנאי חובה:</b> הממוצע המרכזי (50 יום ביומי, 30 שבועות בשבועי) עדיין ירד לפני כשבועיים (יומי) או 5 שבועות (שבועי), והמחיר חצה אותו כלפי מעלה ב-3 הנרות האחרונים (2 בשבועי) ונשאר מעליו.</li>
+      <li><b>מהפך, הציון:</b> עשר בדיקות אישור: חציית MACD מעל קו האות, RSI שעלה מעל 50, ‎+DI שחצה מעל ‎-DI, שפל עולה, פריצת השיא המקומי האחרון, ממוצע מהיר (EMA 20 / 10 שבועות) מעל המרכזי, ממוצע מרכזי שכבר מתיישר, נפח פי 1.2 ביום החצייה, OBV מעל ממוצע 20, ומחיר מעל הממוצע הארוך (200 יום / 40 שבועות).</li>
+      <li><b>פריצות, הציון (0–100):</b> עשר בדיקות, 10 נקודות לכל אחת: מגמה מעל ממוצע עולה (50 יום / 10 שבועות), ממוצע קצר מעל ארוך (50/200 יום, 10/30 שבועות), RSI בין 55 ל-80, MACD מעל קו האות ומעל 0, ADX מעל 20 עם +DI מוביל, OBV מעל ממוצע 20, סגירה ברבע העליון של הנר, נפח פי 2 ומעלה, שיא 52 שבועות, ויציאה מכיווץ של רצועות בולינגר.</li>
     </ul>
   </details>
   <div class="bar">
-    <div class="seg" role="group" aria-label="טווח">
-      <button data-iv="d" aria-pressed="true">פריצה יומית</button>
-      <button data-iv="w" aria-pressed="false">פריצה שבועית</button>
+    <div class="seg" role="group" aria-label="סוג סריקה">
+      <button data-mode="b" aria-pressed="true">🚀 פריצות</button>
+      <button data-mode="r" aria-pressed="false">↗️ מהפך למגמת עלייה</button>
     </div>
-    <select id="min" aria-label="ציון מינימלי"><option value="0">כל הציונים</option><option value="50">ציון 50+</option><option value="70" selected>ציון 70+</option><option value="80">ציון 80+</option></select>
-    <select id="ix" aria-label="מדד"><option value="">כל המדדים</option><option value="S&amp;P 500">S&amp;P 500</option><option value="Nasdaq-100">Nasdaq-100</option></select>
+    <div class="seg" role="group" aria-label="טווח">
+      <button data-iv="d" aria-pressed="true">יומי</button>
+      <button data-iv="w" aria-pressed="false">שבועי</button>
+    </div>
+    <select id="min" aria-label="ציון מינימלי"><option value="0">כל הציונים</option><option value="50">ציון 50+</option><option value="60">ציון 60+</option><option value="70" selected>ציון 70+</option><option value="80">ציון 80+</option></select>
+    <select id="ix" aria-label="מדד"><option value="">כל המניות</option><option value="S&amp;P 500">S&amp;P 500</option><option value="Nasdaq-100">Nasdaq-100</option></select>
     <input type="search" id="q" placeholder="סימבול, חברה או סקטור" aria-label="חיפוש">
     <span class="grow"></span>
-    <a class="btn run" id="run" href="https://github.com/sagivitzhak/Stock-Scanner/actions/workflows/scan.yml" target="_blank" rel="noopener" title="פותח את GitHub. שם לוחצים Run workflow, והתוצאות מתעדכנות כאן אחרי כ-3 דקות">🔄 הרץ סריקה עכשיו</a>
+    <a class="btn run" id="run" href="https://github.com/sagivitzhak/Stock-Scanner/actions/workflows/scan.yml" target="_blank" rel="noopener" title="פותח את GitHub. שם לוחצים Run workflow, והתוצאות מתעדכנות כאן אחרי כ-10 דקות">🔄 הרץ סריקה עכשיו</a>
   </div>
   <div class="tw"><table>
     <thead><tr>
       <th data-k="tk">סימבול</th><th data-k="nm">חברה</th><th data-k="sec">סקטור</th>
-      <th data-k="px">מחיר</th><th data-k="chg">שינוי</th><th data-k="above">מעל הרמה</th>
-      <th data-k="vr">נפח ביחס לממוצע</th><th data-k="rsi">RSI</th><th data-k="adx">ADX</th><th data-k="score" aria-sort="descending">ציון</th>
+      <th data-k="px">מחיר</th><th data-k="chg">שינוי</th><th data-k="above" id="th-above">מעל הרמה</th>
+      <th data-k="vr" id="th-vr">נפח ביחס לממוצע</th><th data-k="rsi">RSI</th><th data-k="x3" id="th-x3">ADX</th><th data-k="score" aria-sort="descending">ציון</th>
     </tr></thead>
     <tbody id="tb"><tr><td colspan="10" class="empty">טוען…</td></tr></tbody>
   </table></div>
-  <p class="note" id="foot">הסריקה רצה אוטומטית בכל ערב מסחר בשעה 00:30 שעון ישראל, אחרי סגירת וול סטריט. הכפתור "הרץ סריקה עכשיו" פותח את GitHub: לוחצים שם Run workflow, ואחרי כ-3 דקות מרעננים את העמוד. נתוני מחיר מ-Yahoo Finance. פריצה טכנית היא תיאור של תנועת המחיר, לא המלצה לקנות.</p>
+  <p class="note" id="foot">הסריקה (כל השוק, כ-5,000 מניות; נשארות רק מניות מעל $5 עם מחזור יומי מעל $5 מיליון) רצה אוטומטית בכל ערב מסחר בשעה 00:30 שעון ישראל, אחרי סגירת וול סטריט. הכפתור "הרץ סריקה עכשיו" פותח את GitHub: לוחצים שם Run workflow, ואחרי כ-10 דקות מרעננים את העמוד. נתוני מחיר מ-Yahoo Finance. פריצה טכנית היא תיאור של תנועת המחיר, לא המלצה לקנות.</p>
 </div></section>
 <script>
 {
 const $=s=>document.querySelector(s);
-const st={iv:"d",min:70,ix:"",q:"",k:"score",dir:-1,open:null};
+const st={mode:"b",iv:"d",min:70,ix:"",q:"",k:"score",dir:-1,open:null};
 try{Object.assign(st,JSON.parse(localStorage.getItem("scan-state")||"{}"));st.open=null}catch(e){}
+{const m=new URLSearchParams(location.search).get("mode");if(m==="rev")st.mode="r";if(m==="brk")st.mode="b"}
+const key=()=>(st.mode==="r"?"r":"")+st.iv;
+const prep=x=>Object.assign(x,{x3:st.mode==="r"?x.dd:x.adx});
 const save=()=>{try{localStorage.setItem("scan-state",JSON.stringify(st))}catch(e){}};
 let S=null;
 const f=(x,d=2)=>x==null?"–":Number(x).toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});
@@ -99,27 +108,32 @@ const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&g
 function rows(){
   if(!S)return[];
   const q=st.q.trim().toLowerCase();
-  let r=(S[st.iv]||[]).filter(x=>x.score>=st.min&&(!st.ix||(x.ix||[]).includes(st.ix))&&(!q||(x.tk+" "+x.nm+" "+x.sec).toLowerCase().includes(q)));
+  let r=(S[key()]||[]).map(prep).filter(x=>x.score>=st.min&&(!st.ix||(x.ix||[]).includes(st.ix))&&(!q||(x.tk+" "+x.nm+" "+x.sec).toLowerCase().includes(q)));
   const k=st.k;r.sort((a,b)=>{const A=a[k],B=b[k];if(typeof A==="string")return st.dir*A.localeCompare(B);return st.dir*((A??-1e9)-(B??-1e9))});
   return r;
 }
 function render(){
   document.querySelectorAll("[data-iv]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.iv===st.iv));
+  document.querySelectorAll("[data-mode]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.mode===st.mode));
+  const R=st.mode==="r";
+  $("#th-above").textContent=R?"מעל הממוצע":"מעל הרמה";$("#th-vr").textContent=R?"נפח ביום החצייה":"נפח ביחס לממוצע";$("#th-x3").textContent=R?"מהשיא השנתי":"ADX";
   document.querySelectorAll("th").forEach(th=>th.dataset.k===st.k?th.setAttribute("aria-sort",st.dir<0?"descending":"ascending"):th.removeAttribute("aria-sort"));
   $("#min").value=st.min;$("#ix").value=st.ix;$("#q").value=st.q;
   if(!S)return;
-  const all=S[st.iv]||[],r=rows(),strong=all.filter(x=>x.score>=70).length;
-  $("#h1").textContent=all.length?all.length+" מניות בפריצה "+(st.iv==="d"?"יומית":"שבועית")+", "+strong+" מהן בציון 70 ומעלה":"אין פריצות "+(st.iv==="d"?"יומיות":"שבועיות")+" בסריקה האחרונה";
+  const all=S[key()]||[],r=rows(),strong=all.filter(x=>x.score>=70).length,wk=st.iv==="d"?"יומי":"שבועי";
+  $("#h1").textContent=all.length?(R?all.length+" מניות במהפך למגמת עלייה ("+wk+"), "+strong+" מהן בציון 70 ומעלה":all.length+" מניות בפריצה "+(st.iv==="d"?"יומית":"שבועית")+", "+strong+" מהן בציון 70 ומעלה"):(R?"אין מהפכים בטווח ה"+wk+" בסריקה האחרונה":"אין פריצות "+(st.iv==="d"?"יומיות":"שבועיות")+" בסריקה האחרונה");
   const at=new Date(S.at);
-  $("#figs").innerHTML='<div><b>'+S.scanned+'</b><span>מניות נסרקו</span></div><div><b>'+(S.d||[]).length+'</b><span>פריצות יומיות</span></div><div><b>'+(S.w||[]).length+'</b><span>פריצות שבועיות</span></div><div><b style="font-size:18px">'+at.toLocaleString("he-IL",{dateStyle:"short",timeStyle:"short"})+'</b><span>סריקה אחרונה</span></div>';
+  $("#figs").innerHTML='<div><b>'+(S.liquid||S.scanned)+'</b><span>מניות סחירות נבדקו (מתוך '+S.scanned+')</span></div><div><b>'+(S.d||[]).length+' / '+(S.w||[]).length+'</b><span>פריצות יומי / שבועי</span></div><div><b>'+(S.rd||[]).length+' / '+(S.rw||[]).length+'</b><span>מהפכים יומי / שבועי</span></div><div><b style="font-size:18px">'+at.toLocaleString("he-IL",{dateStyle:"short",timeStyle:"short"})+'</b><span>סריקה אחרונה</span></div>';
   if(!r.length){$("#tb").innerHTML='<tr><td colspan="10" class="empty">'+(all.length?"אין מניות שעומדות בסינון. נסה ציון נמוך יותר.":"אין פריצות בטווח הזה בסריקה האחרונה.")+'</td></tr>';return}
   $("#tb").innerHTML=r.map(x=>{
     const open=st.open===x.tk;
-    const row='<tr class="row" data-tk="'+esc(x.tk)+'" aria-expanded="'+open+'"><td><span class="tk">'+esc(x.tk)+'</span></td><td>'+esc(x.nm)+'</td><td><span class="tag">'+esc(x.sec||"–")+'</span></td><td class="num">$'+f(x.px)+'</td><td class="num up">+'+f(x.chg)+'%</td><td class="num">+'+f(x.above)+'%</td><td class="num">×'+f(x.vr,1)+'</td><td class="num">'+f(x.rsi,0)+'</td><td class="num">'+f(x.adx,0)+'</td><td><div class="sc"><b>'+x.score+'</b><i style="width:'+(x.score*0.6)+'px"></i></div></td></tr>';
-    const det=open?'<tr class="det"><td colspan="10"><div>פריצה מעל $'+f(x.lvl)+' (שיא '+(st.iv==="d"?"20 ימים":"20 שבועות")+'), נר של '+esc(x.date)+'. '+(x.ix||[]).map(esc).join(" · ")+'</div><ul>'+x.pass.map(p=>'<li class="ok">✓ '+esc(p)+'</li>').join("")+x.fail.map(p=>'<li class="no">'+esc(p)+'</li>').join("")+'</ul><a href="chart.html?tk='+encodeURIComponent(x.tk)+'">📈 פתח גרף טכני</a></td></tr>':"";
+    const row='<tr class="row" data-tk="'+esc(x.tk)+'" aria-expanded="'+open+'"><td><span class="tk">'+esc(x.tk)+'</span></td><td>'+esc(x.nm)+'</td><td><span class="tag">'+esc(x.sec||"–")+'</span></td><td class="num">$'+f(x.px)+'</td><td class="num '+(x.chg>=0?"up":"")+'">'+(x.chg>=0?"+":"")+f(x.chg)+'%</td><td class="num">+'+f(x.above)+'%</td><td class="num">×'+f(x.vr,1)+'</td><td class="num">'+f(x.rsi,0)+'</td><td class="num">'+(R?f(x.dd,1)+'%':f(x.adx,0))+'</td><td><div class="sc"><b>'+x.score+'</b><i style="width:'+(x.score*0.6)+'px"></i></div></td></tr>';
+    const head=R?'חצייה מעל ממוצע '+(st.iv==="d"?"50 יום":"30 שבועות")+' ($'+f(x.ma)+') '+(x.bars===0?"בנר האחרון":"לפני "+x.bars+" נרות")+', '+f(Math.abs(x.dd),1)+'% מתחת לשיא השנתי. נר של '+esc(x.date)+'. ':'פריצה מעל $'+f(x.lvl)+' (שיא '+(st.iv==="d"?"20 ימים":"20 שבועות")+'), נר של '+esc(x.date)+'. ';
+    const det=open?'<tr class="det"><td colspan="10"><div>'+head+(x.ix||[]).map(esc).join(" · ")+'</div><ul>'+x.pass.map(p=>'<li class="ok">✓ '+esc(p)+'</li>').join("")+x.fail.map(p=>'<li class="no">'+esc(p)+'</li>').join("")+'</ul><a href="chart.html?tk='+encodeURIComponent(x.tk)+'">📈 פתח גרף טכני</a></td></tr>':"";
     return row+det}).join("");
 }
 document.querySelectorAll("[data-iv]").forEach(b=>b.addEventListener("click",()=>{st.iv=b.dataset.iv;st.open=null;save();render()}));
+document.querySelectorAll("[data-mode]").forEach(b=>b.addEventListener("click",()=>{st.mode=b.dataset.mode;st.open=null;if(st.mode==="r"&&st.min>60)st.min=60;save();render()}));
 $("#min").addEventListener("change",e=>{st.min=+e.target.value;save();render()});
 $("#ix").addEventListener("change",e=>{st.ix=e.target.value;save();render()});
 $("#q").addEventListener("input",e=>{st.q=e.target.value;save();render()});
