@@ -1,5 +1,5 @@
 window.DATA={
-"updated": "2026-11-21T13:33:58Z",
+"updated": "2026-11-21T13:36:29Z",
 "events": [
 {
 "id": "nvda",
@@ -84,7 +84,7 @@ window.DATA={
 "-31.2%"
 ]
 ],
-"liveAt": "2026-11-21T13:33Z"
+"liveAt": "2026-11-21T13:36Z"
 },
 {
 "id": "tgt",
@@ -156,7 +156,7 @@ window.DATA={
 "+96.2%"
 ]
 ],
-"liveAt": "2026-11-21T13:33Z"
+"liveAt": "2026-11-21T13:36Z"
 },
 {
 "id": "low",
@@ -231,7 +231,7 @@ window.DATA={
 "-3.5%"
 ]
 ],
-"liveAt": "2026-11-21T13:33Z"
+"liveAt": "2026-11-21T13:36Z"
 },
 {
 "id": "panw",
@@ -307,7 +307,7 @@ window.DATA={
 "+86.7%"
 ]
 ],
-"liveAt": "2026-11-21T13:33Z"
+"liveAt": "2026-11-21T13:36Z"
 },
 {
 "id": "wmt",
@@ -386,7 +386,7 @@ window.DATA={
 "+23.0%"
 ]
 ],
-"liveAt": "2026-11-21T13:33Z"
+"liveAt": "2026-11-21T13:36Z"
 },
 {
 "id": "intu",
@@ -461,7 +461,7 @@ window.DATA={
 "-58.6%"
 ]
 ],
-"liveAt": "2026-11-21T13:33Z"
+"liveAt": "2026-11-21T13:36Z"
 },
 {
 "id": "capr",
@@ -707,7 +707,7 @@ window.DATA={
 "+24.2%"
 ]
 ],
-"liveAt": "2026-11-21T13:33Z"
+"liveAt": "2026-11-21T13:36Z"
 },
 {
 "id": "adbe-20261209",
@@ -755,7 +755,7 @@ window.DATA={
 "-31.7%"
 ]
 ],
-"liveAt": "2026-11-21T13:33Z"
+"liveAt": "2026-11-21T13:36Z"
 },
 {
 "id": "amd-20270202",
@@ -803,7 +803,7 @@ window.DATA={
 "+97.3%"
 ]
 ],
-"liveAt": "2026-11-21T13:33Z"
+"liveAt": "2026-11-21T13:36Z"
 },
 {
 "id": "avgo-20261209",
@@ -851,7 +851,7 @@ window.DATA={
 "-19.5%"
 ]
 ],
-"liveAt": "2026-11-21T13:33Z"
+"liveAt": "2026-11-21T13:36Z"
 },
 {
 "id": "bby-20261124",
@@ -899,7 +899,7 @@ window.DATA={
 "+29.5%"
 ]
 ],
-"liveAt": "2026-11-21T13:33Z"
+"liveAt": "2026-11-21T13:36Z"
 },
 {
 "id": "cost-20261210",
@@ -947,7 +947,7 @@ window.DATA={
 "+24.4%"
 ]
 ],
-"liveAt": "2026-11-21T13:33Z"
+"liveAt": "2026-11-21T13:36Z"
 },
 {
 "id": "crm-20261202",
@@ -995,7 +995,7 @@ window.DATA={
 "-20.4%"
 ]
 ],
-"liveAt": "2026-11-21T13:33Z"
+"liveAt": "2026-11-21T13:36Z"
 },
 {
 "id": "meta-20270127",
@@ -1043,7 +1043,7 @@ window.DATA={
 "-8.5%"
 ]
 ],
-"liveAt": "2026-11-21T13:33Z"
+"liveAt": "2026-11-21T13:36Z"
 },
 {
 "id": "msft-20270127",
@@ -1091,7 +1091,7 @@ window.DATA={
 "+2.2%"
 ]
 ],
-"liveAt": "2026-11-21T13:33Z"
+"liveAt": "2026-11-21T13:36Z"
 },
 {
 "id": "mu-20261217",
@@ -1139,7 +1139,7 @@ window.DATA={
 "+165.5%"
 ]
 ],
-"liveAt": "2026-11-21T13:33Z"
+"liveAt": "2026-11-21T13:36Z"
 },
 {
 "id": "orcl-20261214",
@@ -1187,7 +1187,7 @@ window.DATA={
 "-49.5%"
 ]
 ],
-"liveAt": "2026-11-21T13:33Z"
+"liveAt": "2026-11-21T13:36Z"
 },
 {
 "id": "tsla-20270127",
@@ -1235,16 +1235,10 @@ window.DATA={
 "-17.2%"
 ]
 ],
-"liveAt": "2026-11-21T13:33Z"
+"liveAt": "2026-11-21T13:36Z"
 }
 ],
 "extra": [
-{
-"tk": "BBY",
-"t": "e",
-"d": "2026-11-24",
-"nm": "Best Buy, דוח Q3"
-},
 {
 "tk": "BBIO",
 "t": "f",
@@ -1299,7 +1293,7 @@ window.DATA={
 "rating": "buy",
 "analysts": 39,
 "chg52": 24.2,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "ADBE": {
 "name": "Adobe Inc.",
@@ -1317,7 +1311,7 @@ window.DATA={
 "rating": "hold",
 "analysts": 33,
 "chg52": -31.7,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "AMD": {
 "name": "Advanced Micro Devices, Inc.",
@@ -1335,7 +1329,7 @@ window.DATA={
 "rating": "strong_buy",
 "analysts": 49,
 "chg52": 97.3,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "AMZN": {
 "name": "Amazon.com, Inc.",
@@ -1353,7 +1347,7 @@ window.DATA={
 "rating": "strong_buy",
 "analysts": 60,
 "chg52": 9.1,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "AVGO": {
 "name": "Broadcom Inc.",
@@ -1371,7 +1365,7 @@ window.DATA={
 "rating": "strong_buy",
 "analysts": 47,
 "chg52": -19.5,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "BBY": {
 "name": "Best Buy Co., Inc.",
@@ -1389,7 +1383,7 @@ window.DATA={
 "rating": "hold",
 "analysts": 21,
 "chg52": 29.5,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "COST": {
 "name": "Costco Wholesale Corporation",
@@ -1407,7 +1401,7 @@ window.DATA={
 "rating": "buy",
 "analysts": 37,
 "chg52": 24.4,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "CRM": {
 "name": "Salesforce, Inc.",
@@ -1425,7 +1419,7 @@ window.DATA={
 "rating": "buy",
 "analysts": 53,
 "chg52": -20.4,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "GOOGL": {
 "name": "Alphabet Inc.",
@@ -1443,7 +1437,7 @@ window.DATA={
 "rating": "strong_buy",
 "analysts": 53,
 "chg52": -16.7,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "INTU": {
 "name": "Intuit Inc.",
@@ -1461,7 +1455,7 @@ window.DATA={
 "rating": "buy",
 "analysts": 31,
 "chg52": -58.6,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "LOW": {
 "name": "Lowe's Companies, Inc.",
@@ -1479,7 +1473,7 @@ window.DATA={
 "rating": "buy",
 "analysts": 33,
 "chg52": -3.5,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "META": {
 "name": "Meta Platforms, Inc.",
@@ -1497,7 +1491,7 @@ window.DATA={
 "rating": "strong_buy",
 "analysts": 58,
 "chg52": -8.5,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "MSFT": {
 "name": "Microsoft Corporation",
@@ -1515,7 +1509,7 @@ window.DATA={
 "rating": "strong_buy",
 "analysts": 54,
 "chg52": 2.2,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "MU": {
 "name": "Micron Technology, Inc.",
@@ -1533,7 +1527,7 @@ window.DATA={
 "rating": "strong_buy",
 "analysts": 45,
 "chg52": 165.5,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "NVDA": {
 "name": "NVIDIA Corporation",
@@ -1551,7 +1545,7 @@ window.DATA={
 "rating": "buy",
 "analysts": 56,
 "chg52": -31.2,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "ORCL": {
 "name": "Oracle Corporation",
@@ -1569,7 +1563,7 @@ window.DATA={
 "rating": "strong_buy",
 "analysts": 40,
 "chg52": -49.5,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "PANW": {
 "name": "Palo Alto Networks, Inc.",
@@ -1587,7 +1581,7 @@ window.DATA={
 "rating": "buy",
 "analysts": 51,
 "chg52": 86.7,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "TGT": {
 "name": "Target Corporation",
@@ -1605,7 +1599,7 @@ window.DATA={
 "rating": "buy",
 "analysts": 35,
 "chg52": 96.2,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "TSLA": {
 "name": "Tesla, Inc.",
@@ -1623,7 +1617,7 @@ window.DATA={
 "rating": "buy",
 "analysts": 40,
 "chg52": -17.2,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 },
 "WMT": {
 "name": "Walmart Inc.",
@@ -1641,7 +1635,7 @@ window.DATA={
 "rating": "strong_buy",
 "analysts": 41,
 "chg52": 23.0,
-"at": "2026-11-21T13:33Z"
+"at": "2026-11-21T13:36Z"
 }
 }
 };
