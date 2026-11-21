@@ -1,5 +1,5 @@
 window.DATA={
-"updated": "2026-11-21T13:36:29Z",
+"updated": "2026-11-21T14:05:15Z",
 "events": [
 {
 "id": "nvda",
@@ -84,7 +84,7 @@ window.DATA={
 "-31.2%"
 ]
 ],
-"liveAt": "2026-11-21T13:36Z"
+"liveAt": "2026-11-21T14:05Z"
 },
 {
 "id": "tgt",
@@ -156,7 +156,7 @@ window.DATA={
 "+96.2%"
 ]
 ],
-"liveAt": "2026-11-21T13:36Z"
+"liveAt": "2026-11-21T14:05Z"
 },
 {
 "id": "low",
@@ -231,7 +231,7 @@ window.DATA={
 "-3.5%"
 ]
 ],
-"liveAt": "2026-11-21T13:36Z"
+"liveAt": "2026-11-21T14:05Z"
 },
 {
 "id": "panw",
@@ -307,7 +307,7 @@ window.DATA={
 "+86.7%"
 ]
 ],
-"liveAt": "2026-11-21T13:36Z"
+"liveAt": "2026-11-21T14:05Z"
 },
 {
 "id": "wmt",
@@ -386,7 +386,7 @@ window.DATA={
 "+23.0%"
 ]
 ],
-"liveAt": "2026-11-21T13:36Z"
+"liveAt": "2026-11-21T14:05Z"
 },
 {
 "id": "intu",
@@ -461,7 +461,7 @@ window.DATA={
 "-58.6%"
 ]
 ],
-"liveAt": "2026-11-21T13:36Z"
+"liveAt": "2026-11-21T14:05Z"
 },
 {
 "id": "capr",
@@ -511,7 +511,39 @@ window.DATA={
 "https://stocktwits.com/news-articles/markets/equity/capr-stock-climbs-on-fda-s-three-month-deramiocel-extension-hc-wainwright-sticks-to-neutral-flags-high-rejection-risk/cZYKtybRJFV"
 ]
 ],
-"drug": "deramiocel"
+"drug": "deramiocel",
+"live": [
+[
+"מחיר",
+"$7.59"
+],
+[
+"שווי שוק",
+"$441 מיליון"
+],
+[
+"מכפיל רווח",
+"-5.3 צפוי"
+],
+[
+"יעד אנליסטים ממוצע",
+"$27.25 (+259.0%)"
+],
+[
+"המלצה",
+"buy, 6 אנליסטים"
+],
+[
+"שינוי ב-52 שבועות",
+"+63.6%"
+]
+],
+"liveAt": "2026-11-21T14:05Z",
+"em": {
+"pct": 104.7,
+"exp": "2026-11-27",
+"strike": 7.5
+}
 },
 {
 "id": "vrtx",
@@ -557,7 +589,39 @@ window.DATA={
 "https://www.biospace.com/drug-development/vertexs-iga-nephropathy-drug-derisked-after-novartis-vera-approvals"
 ]
 ],
-"drug": "povetacicept"
+"drug": "povetacicept",
+"live": [
+[
+"מחיר",
+"$515.02"
+],
+[
+"שווי שוק",
+"$130.6 מיליארד"
+],
+[
+"מכפיל רווח",
+"33.1 / 25.9 צפוי"
+],
+[
+"יעד אנליסטים ממוצע",
+"$595.36 (+15.6%)"
+],
+[
+"המלצה",
+"buy, 28 אנליסטים"
+],
+[
+"שינוי ב-52 שבועות",
+"+21.5%"
+]
+],
+"liveAt": "2026-11-21T14:05Z",
+"em": {
+"pct": 6.9,
+"exp": "2026-12-04",
+"strike": 520.0
+}
 },
 {
 "id": "cogt",
@@ -602,7 +666,39 @@ window.DATA={
 "https://www.barchart.com/story/news/3754111/cogent-biosciences-reports-recent-business-highlights-and-second-quarter-2026-financial-results"
 ]
 ],
-"drug": "bezuclastinib"
+"drug": "bezuclastinib",
+"live": [
+[
+"מחיר",
+"$26.71"
+],
+[
+"שווי שוק",
+"$4.6 מיליארד"
+],
+[
+"מכפיל רווח",
+"-21.1 צפוי"
+],
+[
+"יעד אנליסטים ממוצע",
+"$55.82 (+109.0%)"
+],
+[
+"המלצה",
+"strong_buy, 11 אנליסטים"
+],
+[
+"שינוי ב-52 שבועות",
+"-30.7%"
+]
+],
+"liveAt": "2026-11-21T14:05Z",
+"em": {
+"pct": 22.3,
+"exp": "2026-12-18",
+"strike": 28.0
+}
 },
 {
 "id": "cort",
@@ -659,7 +755,39 @@ window.DATA={
 "https://www.merlintrader.com/corcept-therapeutics-inc/"
 ]
 ],
-"drug": "relacorilant"
+"drug": "relacorilant",
+"live": [
+[
+"מחיר",
+"$63.62"
+],
+[
+"שווי שוק",
+"$7.0 מיליארד"
+],
+[
+"מכפיל רווח",
+"47.8 / 12.8 צפוי"
+],
+[
+"יעד אנליסטים ממוצע",
+"$142.60 (+124.1%)"
+],
+[
+"המלצה",
+"none, 5 אנליסטים"
+],
+[
+"שינוי ב-52 שבועות",
+"-18.1%"
+]
+],
+"liveAt": "2026-11-21T14:05Z",
+"em": {
+"pct": 24.7,
+"exp": "2026-12-18",
+"strike": 65.0
+}
 },
 {
 "id": "aapl-20270128",
@@ -707,7 +835,7 @@ window.DATA={
 "+24.2%"
 ]
 ],
-"liveAt": "2026-11-21T13:36Z"
+"liveAt": "2026-11-21T14:05Z"
 },
 {
 "id": "adbe-20261209",
@@ -755,7 +883,12 @@ window.DATA={
 "-31.7%"
 ]
 ],
-"liveAt": "2026-11-21T13:36Z"
+"liveAt": "2026-11-21T14:05Z",
+"em": {
+"pct": 13.5,
+"exp": "2026-12-11",
+"strike": 220.0
+}
 },
 {
 "id": "amd-20270202",
@@ -803,7 +936,7 @@ window.DATA={
 "+97.3%"
 ]
 ],
-"liveAt": "2026-11-21T13:36Z"
+"liveAt": "2026-11-21T14:05Z"
 },
 {
 "id": "avgo-20261209",
@@ -851,7 +984,12 @@ window.DATA={
 "-19.5%"
 ]
 ],
-"liveAt": "2026-11-21T13:36Z"
+"liveAt": "2026-11-21T14:05Z",
+"em": {
+"pct": 16.7,
+"exp": "2026-12-11",
+"strike": 305.0
+}
 },
 {
 "id": "bby-20261124",
@@ -899,7 +1037,12 @@ window.DATA={
 "+29.5%"
 ]
 ],
-"liveAt": "2026-11-21T13:36Z"
+"liveAt": "2026-11-21T14:05Z",
+"em": {
+"pct": 9.6,
+"exp": "2026-11-27",
+"strike": 98.0
+}
 },
 {
 "id": "cost-20261210",
@@ -947,7 +1090,12 @@ window.DATA={
 "+24.4%"
 ]
 ],
-"liveAt": "2026-11-21T13:36Z"
+"liveAt": "2026-11-21T14:05Z",
+"em": {
+"pct": 6.3,
+"exp": "2026-12-11",
+"strike": 1100.0
+}
 },
 {
 "id": "crm-20261202",
@@ -995,7 +1143,12 @@ window.DATA={
 "-20.4%"
 ]
 ],
-"liveAt": "2026-11-21T13:36Z"
+"liveAt": "2026-11-21T14:05Z",
+"em": {
+"pct": 13.1,
+"exp": "2026-12-04",
+"strike": 180.0
+}
 },
 {
 "id": "meta-20270127",
@@ -1043,7 +1196,7 @@ window.DATA={
 "-8.5%"
 ]
 ],
-"liveAt": "2026-11-21T13:36Z"
+"liveAt": "2026-11-21T14:05Z"
 },
 {
 "id": "msft-20270127",
@@ -1091,7 +1244,7 @@ window.DATA={
 "+2.2%"
 ]
 ],
-"liveAt": "2026-11-21T13:36Z"
+"liveAt": "2026-11-21T14:05Z"
 },
 {
 "id": "mu-20261217",
@@ -1139,7 +1292,12 @@ window.DATA={
 "+165.5%"
 ]
 ],
-"liveAt": "2026-11-21T13:36Z"
+"liveAt": "2026-11-21T14:05Z",
+"em": {
+"pct": 21.4,
+"exp": "2026-12-18",
+"strike": 590.0
+}
 },
 {
 "id": "orcl-20261214",
@@ -1187,7 +1345,12 @@ window.DATA={
 "-49.5%"
 ]
 ],
-"liveAt": "2026-11-21T13:36Z"
+"liveAt": "2026-11-21T14:05Z",
+"em": {
+"pct": 20.7,
+"exp": "2026-12-18",
+"strike": 100.0
+}
 },
 {
 "id": "tsla-20270127",
@@ -1235,7 +1398,7 @@ window.DATA={
 "-17.2%"
 ]
 ],
-"liveAt": "2026-11-21T13:36Z"
+"liveAt": "2026-11-21T14:05Z"
 }
 ],
 "extra": [
@@ -1293,7 +1456,7 @@ window.DATA={
 "rating": "buy",
 "analysts": 39,
 "chg52": 24.2,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "ADBE": {
 "name": "Adobe Inc.",
@@ -1311,7 +1474,7 @@ window.DATA={
 "rating": "hold",
 "analysts": 33,
 "chg52": -31.7,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "AMD": {
 "name": "Advanced Micro Devices, Inc.",
@@ -1329,7 +1492,7 @@ window.DATA={
 "rating": "strong_buy",
 "analysts": 49,
 "chg52": 97.3,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "AMZN": {
 "name": "Amazon.com, Inc.",
@@ -1347,7 +1510,7 @@ window.DATA={
 "rating": "strong_buy",
 "analysts": 60,
 "chg52": 9.1,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "AVGO": {
 "name": "Broadcom Inc.",
@@ -1365,7 +1528,7 @@ window.DATA={
 "rating": "strong_buy",
 "analysts": 47,
 "chg52": -19.5,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "BBY": {
 "name": "Best Buy Co., Inc.",
@@ -1383,7 +1546,7 @@ window.DATA={
 "rating": "hold",
 "analysts": 21,
 "chg52": 29.5,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "COST": {
 "name": "Costco Wholesale Corporation",
@@ -1401,7 +1564,7 @@ window.DATA={
 "rating": "buy",
 "analysts": 37,
 "chg52": 24.4,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "CRM": {
 "name": "Salesforce, Inc.",
@@ -1419,7 +1582,7 @@ window.DATA={
 "rating": "buy",
 "analysts": 53,
 "chg52": -20.4,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "GOOGL": {
 "name": "Alphabet Inc.",
@@ -1437,7 +1600,7 @@ window.DATA={
 "rating": "strong_buy",
 "analysts": 53,
 "chg52": -16.7,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "INTU": {
 "name": "Intuit Inc.",
@@ -1455,7 +1618,7 @@ window.DATA={
 "rating": "buy",
 "analysts": 31,
 "chg52": -58.6,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "LOW": {
 "name": "Lowe's Companies, Inc.",
@@ -1473,7 +1636,7 @@ window.DATA={
 "rating": "buy",
 "analysts": 33,
 "chg52": -3.5,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "META": {
 "name": "Meta Platforms, Inc.",
@@ -1491,7 +1654,7 @@ window.DATA={
 "rating": "strong_buy",
 "analysts": 58,
 "chg52": -8.5,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "MSFT": {
 "name": "Microsoft Corporation",
@@ -1509,7 +1672,7 @@ window.DATA={
 "rating": "strong_buy",
 "analysts": 54,
 "chg52": 2.2,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "MU": {
 "name": "Micron Technology, Inc.",
@@ -1527,7 +1690,7 @@ window.DATA={
 "rating": "strong_buy",
 "analysts": 45,
 "chg52": 165.5,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "NVDA": {
 "name": "NVIDIA Corporation",
@@ -1545,7 +1708,7 @@ window.DATA={
 "rating": "buy",
 "analysts": 56,
 "chg52": -31.2,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "ORCL": {
 "name": "Oracle Corporation",
@@ -1563,7 +1726,7 @@ window.DATA={
 "rating": "strong_buy",
 "analysts": 40,
 "chg52": -49.5,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "PANW": {
 "name": "Palo Alto Networks, Inc.",
@@ -1581,7 +1744,7 @@ window.DATA={
 "rating": "buy",
 "analysts": 51,
 "chg52": 86.7,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "TGT": {
 "name": "Target Corporation",
@@ -1599,7 +1762,7 @@ window.DATA={
 "rating": "buy",
 "analysts": 35,
 "chg52": 96.2,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "TSLA": {
 "name": "Tesla, Inc.",
@@ -1617,7 +1780,7 @@ window.DATA={
 "rating": "buy",
 "analysts": 40,
 "chg52": -17.2,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
 },
 "WMT": {
 "name": "Walmart Inc.",
@@ -1635,7 +1798,85 @@ window.DATA={
 "rating": "strong_buy",
 "analysts": 41,
 "chg52": 23.0,
-"at": "2026-11-21T13:36Z"
+"at": "2026-11-21T14:05Z"
+},
+"CAPR": {
+"name": "Capricor Therapeutics, Inc.",
+"next": null,
+"eps": -0.42,
+"epsLo": -0.76,
+"epsHi": 0.87,
+"rev": 13130000.0,
+"price": 7.59,
+"mcap": 441298624.0,
+"pe": null,
+"fpe": -5.3,
+"target": 27.25,
+"upside": 259.0,
+"rating": "buy",
+"analysts": 6,
+"chg52": 63.6,
+"at": "2026-11-21T14:05Z"
+},
+"COGT": {
+"name": "Cogent Biosciences, Inc.",
+"next": null,
+"eps": -0.64,
+"epsLo": -0.72,
+"epsHi": -0.52,
+"rev": 5451930.0,
+"price": 26.71,
+"mcap": 4648261632.0,
+"pe": null,
+"fpe": -21.1,
+"target": 55.82,
+"upside": 109.0,
+"rating": "strong_buy",
+"analysts": 11,
+"chg52": -30.7,
+"at": "2026-11-21T14:05Z"
+},
+"CORT": {
+"name": "Corcept Therapeutics Incorporat",
+"next": null,
+"eps": 1.2,
+"epsLo": 0.98,
+"epsHi": 1.52,
+"rev": 396626250.0,
+"price": 63.62,
+"mcap": 6962770432.0,
+"pe": 47.8,
+"fpe": 12.8,
+"target": 142.6,
+"upside": 124.1,
+"rating": "none",
+"analysts": 5,
+"chg52": -18.1,
+"at": "2026-11-21T14:05Z"
+},
+"VRTX": {
+"name": "Vertex Pharmaceuticals Incorpor",
+"next": null,
+"eps": 4.1,
+"epsLo": 3.79,
+"epsHi": 5.07,
+"rev": 3497925160.0,
+"price": 515.02,
+"mcap": 130576982016.0,
+"pe": 33.1,
+"fpe": 25.9,
+"target": 595.36,
+"upside": 15.6,
+"rating": "buy",
+"analysts": 28,
+"chg52": 21.5,
+"at": "2026-11-21T14:05Z"
 }
-}
+},
+"alerts": [
+"CAPR",
+"VRTX",
+"COGT",
+"CORT"
+]
 };
