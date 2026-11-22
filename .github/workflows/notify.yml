@@ -2,7 +2,7 @@ name: Morning alerts
 
 on:
   schedule:
-    - cron: "30 5 * * *"   # 05:30 UTC = 07:30 Israel in winter (08:30 in summer), every day
+    - cron: "0 8 * * *"    # 08:00 UTC = 10:00 Israel in winter (11:00 in summer), every day
   workflow_dispatch:
 
 jobs:
